@@ -2,14 +2,15 @@ package com.exam.Database;
 import java.util.ArrayList;
 
 
-import com.exam.Interface.Database;
+//import com.exam.Interface.Database;
 import com.exam.model.*;
 
-public class DatabaseMetadata  implements Database<Metadati> {
+public class DatabaseMetadata  //implements Database<Metadati> 
+ {
 
-	private static ArrayList<Metadati> metadata = new ArrayList<Metadati>();
+	public static ArrayList<Metadati> metadata = new ArrayList<Metadati>();
 	
-	@Override
+
 	public static ArrayList<Metadati> getAll() {
 		metadata.add(new Metadati("data","Data di creazione del twitt","String"));
 		metadata.add(new Metadati("idPost","Descrive in modo univoco il post","Integer"));
