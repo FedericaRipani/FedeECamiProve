@@ -2,6 +2,8 @@ package com.exam.Controller;
 
 import java.util.*;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.exam.Database.DatabaseMetadata;
@@ -22,7 +24,7 @@ public class Controller {
 	 * @return la collezione di metadati
 	 */
 	
-@GetMapping("/getMetadati")
+	@RequestMapping(value = "metadata", method=RequestMethod.GET)
 	public ArrayList<Metadati> getAll()
 	{
 		return DatabaseMetadata.getAll();
