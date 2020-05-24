@@ -2,10 +2,9 @@ package com.exam.Database;
 import java.util.ArrayList;
 
 
-//import com.exam.Interface.Database;
 import com.exam.model.*;
 
-public class DatabaseMetadata  //implements Database<Metadati> 
+public class DatabaseMetadata
  {
 
 	public static ArrayList<Metadati> metadata = new ArrayList<Metadati>();
