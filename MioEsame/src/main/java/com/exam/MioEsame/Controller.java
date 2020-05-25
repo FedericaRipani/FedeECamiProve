@@ -1,5 +1,6 @@
 package com.exam.MioEsame;
 
+import java.io.IOException;
 import java.util.*;
 
 import org.springframework.http.HttpStatus;
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.exam.Database.DatabaseMetadata;
+import com.exam.Database.DatabaseTweet;
 import com.exam.model.Metadati;
+import com.exam.model.Tweet;
 
 /**
  * Il controller rappresenta e contiene tutte le richieste che si possono
@@ -21,6 +24,11 @@ import com.exam.model.Metadati;
 @RestController
 public class Controller {
 	
+	public Controller() throws IOException {
+		ArrayList<Tweet> database = new DatabaseTweet().getDatabase();
+		System.out.println("DATABASE PRONTO");
+	}
+	
 	/**
 	 * Gestisce la chiamata che fa visualizzare i metadati
 	 * con un codice HTTP 200
@@ -30,6 +38,18 @@ public class Controller {
 	@GetMapping("/getMeta")
 	public ResponseEntity<ArrayList<Metadati>> meta() {
 		return new ResponseEntity<ArrayList<Metadati>>(DatabaseMetadata.getAll(), HttpStatus.OK);
+	
+	}
+	
+	/**
+	 * Gestisce la chiamata che fa visualizzare i tweet
+	 * 
+	 * @return la collezione di metadati
+	 */
+	
+	@GetMapping("/getTweets")
+	public ResponseEntity<ArrayList<Tweet>> Twit() {
+		return new ResponseEntity<ArrayList<Tweet>>(DatabaseTweet.getDatabase(), HttpStatus.OK);
 	
 	}
 	

@@ -14,6 +14,8 @@ public class DatabaseMetadata
 
 	public static ArrayList<Metadati> metadata = new ArrayList<Metadati>();
 	
+	
+	
 
 	public static ArrayList<Metadati> getAll() {
 		metadata.add(new Metadati("data","Data di creazione del twitt","String"));
