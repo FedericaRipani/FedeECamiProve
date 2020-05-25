@@ -3,7 +3,6 @@ package com.exam.model;
 /** E' la classe base che ci permette di definire come è
  * composto un metadato, ovvero nome assegnato, sua descrizione e tipo di dato
  * @author Camilla D'Andrea
- * @author Federica Ripani
  */
 
 public class Metadati {

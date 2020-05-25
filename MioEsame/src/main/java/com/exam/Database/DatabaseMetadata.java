@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 import com.exam.model.*;
 
+/**
+ * Definisce un array list di Metadati
+ * @return ArrayList di oggetti Metadati
+ */
+
 public class DatabaseMetadata
  {
 
