@@ -2,15 +2,15 @@ package com.exam.model;
 
 public class Tweet {
 	
-	protected String data;
-	protected int idPost;
-	protected String textPost;
-	protected int idUser;
-	protected String nameUser;
-	protected int numPost;
-	protected String languagePost;
-	protected String userMentions;
-	protected String hashtag;
+	private String data;
+	private int idPost;
+	private String textPost;
+	private int idUser;
+	private String nameUser;
+	private int numPost;
+	private String languagePost;
+	private String userMentions;
+	private String hashtag;
 	
 	
 	//Costruttore del tweet

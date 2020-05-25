@@ -24,8 +24,8 @@ public class Controller {
 	 * @return la collezione di metadati
 	 */
 	
-@GetMapping("/metadata")    
-	public ArrayList<Metadati> getMetadati()
+	@GetMapping(" /getMeta")
+	public ArrayList<Metadati> getAll()
 	{
 		return DatabaseMetadata.getAll();
 	}
