@@ -15,8 +15,10 @@ import com.exam.model.Metadati;
 import com.exam.model.Tweet;
 
 /**
+ * 
  * Il controller rappresenta e contiene tutte le richieste che si possono
  * fare al server
+ * 
  * @author Camilla D'Andrea
  * @author Federica Ripani
  */
@@ -25,8 +27,10 @@ import com.exam.model.Tweet;
 public class Controller {
 	
 	public Controller() throws IOException {
-		ArrayList<Tweet> database = new DatabaseTweet().getDatabase();
-		System.out.println("DATABASE PRONTO");
+		ArrayList<Tweet> database = new DatabaseTweet().getAll();
+		System.out.println("\n\n|--------------------|");
+		System.out.println("|  APPLICATION READY |");
+		System.out.println("|--------------------|\n\n");
 	}
 	
 	/**
@@ -49,7 +53,7 @@ public class Controller {
 	
 	@GetMapping("/getTweets")
 	public ResponseEntity<ArrayList<Tweet>> Twit() {
-		return new ResponseEntity<ArrayList<Tweet>>(DatabaseTweet.getDatabase(), HttpStatus.OK);
+		return new ResponseEntity<ArrayList<Tweet>>(DatabaseTweet.getAll(), HttpStatus.OK);
 	
 	}
 	

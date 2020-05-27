@@ -22,7 +22,7 @@ public class Downloader {
     	 
      }
      
-	public JSONArray DownloaderJson() throws IOException {
+	 public JSONArray DownloaderJson() throws IOException {
 			
 		JSONObject json_ob = new JSONObject(IOUtils.toString(
 			new URL("https://wd4hfxnxxa.execute-api.us-east-2.amazonaws.com/dev/api/1.1/search/tweets.json?q=terremoto&count=100//"), 
@@ -39,6 +39,7 @@ public class Downloader {
 		return array;
 	
 	}
+	
 	
 }
 	

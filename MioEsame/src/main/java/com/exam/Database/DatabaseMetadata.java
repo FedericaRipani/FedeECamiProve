@@ -7,6 +7,8 @@ import com.exam.model.*;
 /**
  * Definisce un array list di Metadati
  * @return ArrayList di oggetti Metadati
+ * 
+ * @author Camilla D'Andrea
  */
 
 public class DatabaseMetadata
