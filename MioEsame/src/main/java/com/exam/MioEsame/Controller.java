@@ -50,7 +50,7 @@ public class Controller {
 	/**
 	 * Gestisce la chiamata che fa visualizzare i tweet
 	 * 
-	 * @return la collezione di metadati
+	 * @return la collezione di tweet
 	 */
 	
 	@GetMapping("/getTweets")
