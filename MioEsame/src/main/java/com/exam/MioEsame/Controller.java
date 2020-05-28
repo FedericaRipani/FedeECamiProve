@@ -1,16 +1,21 @@
 package com.exam.MioEsame;
 
+import java.io.IOException;
 //import java.io.IOException;
 import java.util.*;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import com.exam.Database.DatabaseMetadata;
 import com.exam.Database.DatabaseTweet;
+import com.exam.Filter.UpperBound;
 import com.exam.model.Metadati;
 import com.exam.model.Tweet;
 
@@ -27,14 +32,18 @@ import com.exam.model.Tweet;
 public class Controller {
 	
 	private static DatabaseMetadata meta = new DatabaseMetadata();
-/**	
+	
+
+	public ArrayList<Tweet> vett;
+
+
 	public Controller() throws IOException {
 		ArrayList<Tweet> database = new DatabaseTweet().getAll();
 		System.out.println("\n\n|--------------------|");
 		System.out.println("|  APPLICATION READY |");
 		System.out.println("|--------------------|\n\n");
 	}
-	*/
+	
 	/**
 	 * Gestisce la chiamata che fa visualizzare i metadati
 	 * con un codice HTTP 200
@@ -58,6 +67,27 @@ public class Controller {
 		return new ResponseEntity<ArrayList<Tweet>>(DatabaseTweet.getAll(), HttpStatus.OK);
 	
 	}
+	
+	
+	@SuppressWarnings("rawtypes")
+	@GetMapping("/filtering")
+	public ResponseEntity filters(@RequestParam String filter) throws JSONException {
+
+		System.out.println("wadohlqjwd");
+		System.out.println(filter);
+		JSONObject filtro = new JSONObject(filter);
+		
+		System.out.println(filtro.toString());
+		if(filtro.getString("type")=="UpperBound"){
+			  UpperBound up = new UpperBound(filtro.getString("fields"), filtro.getInt("lower"));
+			  vett = up.apply(DatabaseTweet.getAll(), false);
+		}
+			  return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
+
+		}
+		
+	
+
 	
 
 
