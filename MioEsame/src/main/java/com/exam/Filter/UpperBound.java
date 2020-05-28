@@ -1,32 +1,47 @@
 package com.exam.Filter;
 import java.util.ArrayList;
 
-import com.exam.Database.*;
-import com.exam.model.Tweet;
+import com.exam.model.*;
+import com.exam.Interface.*;
 
-public class UpperBound(){
+
+public class UpperBound extends AbstractFilter  {
 	
-	private int parametroFiltro;
+	private int lower;
 	
-	public int parametro (int param) {
-		int Param = param;
-		return Param;
+	public UpperBound(String fields, int lowers) {
+		super(fields);
+		setLower(lowers);
 	}
 	
+	public int getLower() {
+		return lower;
+	}
 
-	
-	public UpperBound(int Param) {
-		int par;
-		this.parametroFiltro=par;
+	public void setLower(int lower) {
+		this.lower = lower;
+	}
+
+	public boolean approved(Tweet data, boolean equal)
+	{
+		boolean approvato = true;
+		if(data.getTextPost().length()<lower)
+			approvato=false;
+		return approvato;
 	}
 	
-	public static ArrayList<Tweet> data = DatabaseTweet.getAll();
-	public ArrayList<Tweet> filteredArray = new ArrayList<Tweet>();
 	
-	/*public*/ int length = data.length();
 	
-	for(int j=0; j<length; j++)
-		if(data.listed_count[j]>parametroFiltro)
-			filteredArray.add(data[j]);
-	return filteredArray;
+	
+	public ArrayList<Tweet> apply (ArrayList<Tweet> list, boolean equal) {
+		ArrayList<Tweet> filtredArray = new ArrayList<Tweet>();
+		for (int i = 0; i < list.size(); i++) {
+			if (approved(list.get(i), equal)) {
+				filtredArray.add(list.get(i));
+			}
+		}
+
+		return filtredArray;
+	}
 }
+
