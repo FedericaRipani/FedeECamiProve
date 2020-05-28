@@ -7,17 +7,10 @@ import com.exam.model.Tweet;
 public class FilterService {
 
 	
-	public static ArrayList<Tweet> runFilter(Filter filtro, ArrayList<Tweet> array){
-
-		ArrayList<Tweet> filteredArray = new ArrayList<Tweet>();
-		
-		for(Tweet record :  array) {
-
-			if(filtro.filter(record))
-				filteredArray.add(record);
-		}				
-		
-		return filteredArray;
-	}
-
+	public static Filter instanceFilter(String column,String operator,Object param) 
+	String path="com.exam.Filter";
+	Filter filtro;
+	String filterName = new String(column+operator);
+	String ClassFilterName = path.concat(filterName);
+	ClassFilterName(param);
 }
