@@ -26,6 +26,8 @@ import com.exam.model.Tweet;
 @RestController
 public class Controller {
 	
+	private static DatabaseMetadata meta = new DatabaseMetadata();
+	
 	public Controller() throws IOException {
 		ArrayList<Tweet> database = new DatabaseTweet().getAll();
 		System.out.println("\n\n|--------------------|");
@@ -41,7 +43,7 @@ public class Controller {
 	
 	@GetMapping("/getMeta")
 	public ResponseEntity<ArrayList<Metadati>> meta() {
-		return new ResponseEntity<ArrayList<Metadati>>(DatabaseMetadata.getAll(), HttpStatus.OK);
+		return new ResponseEntity<ArrayList<Metadati>>(meta.getAll(), HttpStatus.OK);
 	
 	}
 	

@@ -1,7 +1,7 @@
 package com.exam.Database;
 import java.util.ArrayList;
 
-
+import com.exam.Interface.InterfaceDatabase;
 import com.exam.model.*;
 
 /**
@@ -11,15 +11,15 @@ import com.exam.model.*;
  * @author Camilla D'Andrea
  */
 
-public class DatabaseMetadata
+public class DatabaseMetadata implements InterfaceDatabase
  {
 
-	public static ArrayList<Metadati> metadata = new ArrayList<Metadati>();
+	private static ArrayList<Metadati> metadata = new ArrayList<Metadati>();
 	
 	
 	
 
-	public static ArrayList<Metadati> getAll() {
+	public ArrayList<Metadati> getAll() {
 		metadata.add(new Metadati("data","Data di creazione del twitt","String"));
 		metadata.add(new Metadati("idPost","Descrive in modo univoco il post","Integer"));
 		metadata.add(new Metadati("textPost","Campo testuale del post","String"));
