@@ -1,6 +1,6 @@
 package com.exam.MioEsame;
 
-import java.io.IOException;
+//import java.io.IOException;
 import java.util.*;
 
 import org.springframework.http.HttpStatus;
@@ -27,14 +27,14 @@ import com.exam.model.Tweet;
 public class Controller {
 	
 	private static DatabaseMetadata meta = new DatabaseMetadata();
-	
+/**	
 	public Controller() throws IOException {
 		ArrayList<Tweet> database = new DatabaseTweet().getAll();
 		System.out.println("\n\n|--------------------|");
 		System.out.println("|  APPLICATION READY |");
 		System.out.println("|--------------------|\n\n");
 	}
-	
+	*/
 	/**
 	 * Gestisce la chiamata che fa visualizzare i metadati
 	 * con un codice HTTP 200

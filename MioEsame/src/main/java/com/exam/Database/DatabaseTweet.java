@@ -20,19 +20,12 @@ public class DatabaseTweet{
 	
 	private static ArrayList<Tweet> tweets;
 	private JSONArray JsonArray;
-	private JSONArray JsonArrayEnt;
-	private JSONArray JsonArrayUser;
-	private JSONArray JsonArrayUserMent;
+	
 
 	
 	public DatabaseTweet() throws IOException{
 		
 		 JsonArray = new Downloader().DownloaderJson();
-		 JsonArrayEnt = new Downloader().DownloaderJson();
-		 JsonArrayUser = new Downloader().DownloaderJson();
-		 JsonArrayUserMent = new Downloader().DownloaderJson();
-		
-		 
 		 tweets = new ArrayList<Tweet>(); 
 		 
 		 for (int i=0; i<JsonArray.length(); i++) {

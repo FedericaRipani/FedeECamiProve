@@ -11,14 +11,14 @@ import com.exam.model.*;
  * @author Camilla D'Andrea
  */
 
-public class DatabaseMetadata implements InterfaceDatabase
+public class DatabaseMetadata implements InterfaceDatabase<Metadati>
  {
 
 	private static ArrayList<Metadati> metadata = new ArrayList<Metadati>();
 	
 	
 	
-
+	@Override
 	public ArrayList<Metadati> getAll() {
 		metadata.add(new Metadati("data","Data di creazione del twitt","String"));
 		metadata.add(new Metadati("idPost","Descrive in modo univoco il post","Integer"));
@@ -31,6 +31,13 @@ public class DatabaseMetadata implements InterfaceDatabase
 		metadata.add(new Metadati("hashtag","Descrive gli Hashtag impiegati nel post","String"));
 		
 		return metadata;
+	}
+
+
+
+
+	@Override
+	public void add(Metadati param) {	
 	}
 
 }
