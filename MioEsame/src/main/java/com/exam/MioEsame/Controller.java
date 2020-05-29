@@ -73,22 +73,26 @@ public class Controller {
 	@GetMapping("/filtering")
 	public ResponseEntity filters(@RequestParam String filter) throws JSONException {
 
-		System.out.println("wadohlqjwd");
-		System.out.println(filter);
+		
 		JSONObject filtro = new JSONObject(filter);
 		
-		System.out.println(filtro.toString());
-		if(filtro.getString("type")=="UpperBound"){
+		
+		switch (filtro.getString("type")) {
+
+		case "UpperBound":{
 			  UpperBound up = new UpperBound(filtro.getString("fields"), filtro.getInt("lower"));
 			  vett = up.apply(DatabaseTweet.getAll(), false);
+			  break;
+			}
+			  
 		}
-			  return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
-
-		}
+	return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
+}
+}
 		
 	
 
 	
 
 
-}
+

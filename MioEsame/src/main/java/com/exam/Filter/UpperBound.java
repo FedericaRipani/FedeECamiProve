@@ -25,9 +25,11 @@ public class UpperBound extends AbstractFilter  {
 	public boolean approved(Tweet data, boolean equal)
 	{
 		boolean approvato = true;
-		if(data.getTextPost().length()<lower)
+		if(data.getTextPost().length()<lower) 
 			approvato=false;
+		
 		return approvato;
+		
 	}
 	
 	
