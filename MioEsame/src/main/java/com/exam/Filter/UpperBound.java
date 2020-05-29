@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import com.exam.model.*;
 import com.exam.Interface.*;
 
-
+/**
+ * Classe che implementa il filtro "Essere superiore di un certo valore" 
+ * @param fields campo a cui si vuole applicare il filtro (TextPost o numPost)
+ * @param lower  valore minimo di riferimento.
+ * 
+ * @author Camilla D'Andrea
+ */
 
 public class UpperBound extends AbstractFilter  {
 	
@@ -23,6 +29,7 @@ public class UpperBound extends AbstractFilter  {
 		this.lower = lower;
 	}
 
+	@Override
 	public boolean approved(Tweet data, boolean equal)
 	{
 		boolean approvato = true;
@@ -61,7 +68,7 @@ public class UpperBound extends AbstractFilter  {
 	
 	
 	
-	
+	@Override
 	public ArrayList<Tweet> apply (ArrayList<Tweet> list, boolean equal) {
 		ArrayList<Tweet> filtredArray = new ArrayList<Tweet>();
 		for (int i = 0; i < list.size(); i++) {
