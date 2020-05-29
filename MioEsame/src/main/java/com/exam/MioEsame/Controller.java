@@ -91,32 +91,32 @@ public class Controller {
 			}
 		
 		case "LowerBound":{
-			LowerBound lo = new LowerBound(filtro.getString("fields"), filtro.getInt("lower"));
+			LowerBound lo = new LowerBound(filtro.getString("fields"), filtro.getInt("upper"));
 			vett = lo.apply(DatabaseTweet.getAll(), false);
 			break;
 			}
 		
 		case "LowerBoundE":{
-			LowerBound lo = new LowerBound(filtro.getString("fields"), filtro.getInt("lower"));
+			LowerBound lo = new LowerBound(filtro.getString("fields"), filtro.getInt("upper"));
 			vett = lo.apply(DatabaseTweet.getAll(), true);
 			break;
 			}
 		
-		case "Included":{
+		/*case "Included":{
 			Included in = new Included(filtro.getString("fields"), filtro.getInt("lower"));
 			vett = in.apply(DatabaseTweet.getAll(), false);
 			break;
-			}
+			}*/
 		
-		case "IncludedE":{
+		/*case "IncludedE":{
 			Included in = new Included(filtro.getString("fields"), filtro.getInt("lower"));
 			vett = in.apply(DatabaseTweet.getAll(), true);
 			break;
-			}
+			}*/
 		
 		case "Search":{
-			Search se = new Search(filtro.getString("fields"), filtro.getInt("lower"));
-			vett = se.apply(DatabaseTweet.getAll(), false);
+			Search se = new Search(filtro.getString("fields"), filtro.getString("value"));
+			vett = se.apply(DatabaseTweet.getAll(), true);
 			break;
 			}
 		default:
