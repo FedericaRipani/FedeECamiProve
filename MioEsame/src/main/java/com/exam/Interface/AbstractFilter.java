@@ -17,7 +17,7 @@ import com.exam.model.Tweet;
 public abstract class AbstractFilter {
 	
 	
-		private String fields;
+		protected String fields;
 
 		public AbstractFilter(String fields) {
 			setFields(fields);

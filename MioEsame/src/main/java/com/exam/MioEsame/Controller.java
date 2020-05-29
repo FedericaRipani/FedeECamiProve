@@ -1,7 +1,6 @@
 package com.exam.MioEsame;
 
 import java.io.IOException;
-//import java.io.IOException;
 import java.util.*;
 
 import org.json.JSONException;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exam.Database.DatabaseMetadata;
 import com.exam.Database.DatabaseTweet;
-import com.exam.Filter.UpperBound;
+import com.exam.Filter.*;
 import com.exam.model.Metadati;
 import com.exam.model.Tweet;
 
@@ -84,10 +83,51 @@ public class Controller {
 			  vett = up.apply(DatabaseTweet.getAll(), false);
 			  break;
 			}
-			  
+		
+		case "UpperBoundE":{
+			  UpperBound up = new UpperBound(filtro.getString("fields"), filtro.getInt("lower"));
+			  vett = up.apply(DatabaseTweet.getAll(), true);
+			  break;
+			}
+		
+		case "LowerBound":{
+			LowerBound lo = new LowerBound(filtro.getString("fields"), filtro.getInt("lower"));
+			vett = lo.apply(DatabaseTweet.getAll(), false);
+			break;
+			}
+		
+		case "LowerBoundE":{
+			LowerBound lo = new LowerBound(filtro.getString("fields"), filtro.getInt("lower"));
+			vett = lo.apply(DatabaseTweet.getAll(), true);
+			break;
+			}
+		
+		case "Included":{
+			Included in = new Included(filtro.getString("fields"), filtro.getInt("lower"));
+			vett = in.apply(DatabaseTweet.getAll(), false);
+			break;
+			}
+		
+		case "IncludedE":{
+			Included in = new Included(filtro.getString("fields"), filtro.getInt("lower"));
+			vett = in.apply(DatabaseTweet.getAll(), true);
+			break;
+			}
+		
+		case "Search":{
+			Search se = new Search(filtro.getString("fields"), filtro.getInt("lower"));
+			vett = se.apply(DatabaseTweet.getAll(), false);
+			break;
+			}
+		default:
+			return new ResponseEntity<String>("Nessun filtro selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
+			
 		}
-	return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
-}
+		if (vett.size() == 0)
+			return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
+		
+		return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
+	}
 }
 		
 	

@@ -5,6 +5,7 @@ import com.exam.model.*;
 import com.exam.Interface.*;
 
 
+
 public class UpperBound extends AbstractFilter  {
 	
 	private int lower;
@@ -25,12 +26,38 @@ public class UpperBound extends AbstractFilter  {
 	public boolean approved(Tweet data, boolean equal)
 	{
 		boolean approvato = true;
-		if(data.getTextPost().length()<lower) 
-			approvato=false;
 		
-		return approvato;
+		switch (getFields()) {
 		
+		case "TextPost":
+			if(equal) {
+				if(data.getTextPost().length()<lower) 	
+					approvato=false;
+				}
+			else {
+				if(data.getTextPost().length()<=lower) 	
+					approvato=false;
+				}
+			break;
+		case "numPost":
+			if(equal) {
+				if(data.getNumPost()<lower) 	
+					approvato=false;
+				}
+			else {
+				if(data.getNumPost()<=lower) 	
+					approvato=false;
+				}
+			break;
+			default:approvato=false;
+			break;
+	}		
+			if (approvato)
+				return true;
+			else
+				return false;
 	}
+
 	
 	
 	
