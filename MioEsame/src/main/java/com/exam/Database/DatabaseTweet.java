@@ -33,11 +33,26 @@ public class DatabaseTweet{
 			 JSONObject json = JsonArray.getJSONObject(i);
 			 JSONObject jsonEnt = JsonArray.getJSONObject(i).getJSONObject("entities");
 			 JSONObject jsonUs = JsonArray.getJSONObject(i).getJSONObject("user");
-			 JSONArray jsonUsMent = new JSONArray (jsonEnt.get("user_mentions").toString());
+			 JSONArray jsonUsMent = new JSONArray (jsonEnt.get("user_mentions"));
 			 JSONArray jsonHashtags = new JSONArray (jsonEnt.get("hashtags").toString());
 			 JSONObject language = JsonArray.getJSONObject(i).getJSONObject("metadata");
-			 String Hashtag = TextHashtag(jsonHashtags);
-			 String Mention = Mentions(jsonUsMent);
+			 //String Hashtag = TextHashtag(jsonHashtags);
+			// String Mention = Mentions(jsonUsMent);
+			 
+			 /*  SOSTITUISCE LA FUNZIONE DI SOTTO */
+			 String[] mentions = new String[jsonUsMent.length()];
+			 
+			 for(int j = 0; j < mentions.length; j++) {
+				 mentions[j] = jsonUsMent.getJSONObject(j).getString("screen_name");
+			 }
+			 
+			 String[] hashtags = new String[jsonHashtags.length()];
+			 
+			 for(int k = 0; k < hashtags.length; k++) {
+				 hashtags[k] = jsonHashtags.getJSONObject(k).getString("text");
+			 }
+			 
+			 
 			 
 			
 			 tweets.add(new Tweet(json.getString("created_at"),            //data
@@ -47,8 +62,8 @@ public class DatabaseTweet{
 					 			  jsonUs.getString("screen_name"),         //nome user
 					 			  jsonUs.getInt("listed_count"),           //numero di post dello user
 					 			  language.getString("iso_language_code"), //lingua post
-					 			  Mention,                                    //menzioni
-					 			  Hashtag));    //hashtag
+					 			  mentions,                                    //menzioni
+					 			  hashtags));    //hashtag
 			 
 			}
 	}
@@ -57,6 +72,8 @@ public class DatabaseTweet{
 		return tweets;
 	}
 	
+	
+	/*
 	public String TextHashtag(JSONArray arrayH) {
 		String HashtagText = null;
 		int lengthH = arrayH.length();
@@ -75,6 +92,6 @@ public class DatabaseTweet{
 		return name;		
 	}
 	
-	
+	*/
 	
 }

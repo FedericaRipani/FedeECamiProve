@@ -13,13 +13,13 @@ public class Tweet {
 	private String nameUser;
 	private int numPost;
 	private String languagePost;
-	private String userMentions;
-	private String hashtag;
+	private String[] userMentions;
+	private String[] hashtag;
 	
 	
 	//Costruttore del tweet
 	public Tweet(String data, int idPost, String textPost, int idUser, String nameUser, int numPost,
-			String languagePost, String userMentions, String hashtag) {
+			String languagePost, String[] mentions, String[] hashtags) {
 		this.data = data;
 		this.idPost = idPost;
 		this.textPost = textPost;
@@ -27,8 +27,8 @@ public class Tweet {
 		this.nameUser = nameUser;
 		this.numPost = numPost;
 		this.languagePost = languagePost;
-		this.userMentions = userMentions;
-		this.hashtag = hashtag;
+		this.userMentions = mentions;
+		this.hashtag = hashtags;
 	}
 
 	//Getters and Setters dei tweet
@@ -102,22 +102,22 @@ public class Tweet {
 	}
 
 
-	public String getUserMentions() {
+	public String[] getUserMentions() {
 		return userMentions;
 	}
 
 
-	public void setUserMentions(String userMentions) {
+	public void setUserMentions(String[] userMentions) {
 		this.userMentions = userMentions;
 	}
 
 
-	public String getHashtag() {
+	public String[] getHashtag() {
 		return hashtag;
 	}
 
 
-	public void setHashtag(String hashtag) {
+	public void setHashtag(String[] hashtag) {
 		this.hashtag = hashtag;
 	}
 	
