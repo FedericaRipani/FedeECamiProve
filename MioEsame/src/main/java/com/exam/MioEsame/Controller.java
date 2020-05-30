@@ -31,9 +31,8 @@ import com.exam.model.Tweet;
 public class Controller {
 	
 	private static DatabaseMetadata meta = new DatabaseMetadata();
-	
-
-	public ArrayList<Tweet> vett;
+	private ArrayList<Tweet> vett= new ArrayList<Tweet>();
+	protected String tipo= new String();
 
 
 	public Controller() throws IOException {
@@ -80,9 +79,12 @@ public class Controller {
 	@SuppressWarnings("rawtypes")
 	@GetMapping("/filtering")
 	public ResponseEntity filters(@RequestParam String filter) throws JSONException {
-
-		
 		JSONObject filtro = new JSONObject(filter);
+		tipo=filtro.getString("type");
+		vett=FilterService(DatabaseTweet.getAll(),tipo).filters(tipo);
+		
+		
+		/*JSONObject filtro = new JSONObject(filter);
 		
 		
 		switch (filtro.getString("type")) {
@@ -136,7 +138,7 @@ public class Controller {
 			return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
 		
 		return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
-	}
+	}*/
 }
 		
 	

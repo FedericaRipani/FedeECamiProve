@@ -6,24 +6,22 @@ import java.util.ArrayList;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 public class FilterService {
 	
 	public ArrayList<Tweet> vett;
-	public JSONObject filtro ;
+	public String filtro;
+
 	
-	
-	public FilterService(String filter) {
-		this.vett = new ArrayList<Tweet>();
-		this.filtro = new JSONObject(filter);
+	public FilterService(ArrayList<Tweet> vett,String filtro) {
+		this.vett = vett;
+		this.filtro=filtro; 
 	}
-	
-	//@SuppressWarnings("rawtypes")
-	public  ResponseEntity filters() throws JSONException {
-	switch (filtro.getString("type")) {
+
+
+	public  ArrayList<Tweet> filters(String filtro) throws JSONException {
+	switch (filtro) {
 
 	case "UpperBound":{
 		  UpperBound up = new UpperBound(filtro.getString("fields"), filtro.getInt("lower"));
@@ -65,15 +63,9 @@ public class FilterService {
 		Search se = new Search(filtro.getString("fields"), filtro.getString("value"));
 		vett = se.apply(DatabaseTweet.getAll(), true);
 		break;
+		}	
 		}
-	default:
-		return new ResponseEntity<String>("Nessun filtro selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
-		
-		}
-	if (vett.size() == 0)
-		return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
-	
-	return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
+	return vett;
 	}
 }
 
