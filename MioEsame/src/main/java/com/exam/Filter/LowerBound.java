@@ -1,6 +1,14 @@
 package com.exam.Filter;
 
 import java.util.ArrayList;
+/**
+ * Classe che imp0lementa il filtro "Essere minore di un certo valore"
+ * 
+ * @param fields = Campo a cui si vuole applicare il filtro (TextPost o numPost)
+ * @param uppers = Valore di riferimento.
+ * 
+ * @author Federica Ripani
+ */
 
 import com.exam.Interface.AbstractFilter;
 import com.exam.model.Tweet;

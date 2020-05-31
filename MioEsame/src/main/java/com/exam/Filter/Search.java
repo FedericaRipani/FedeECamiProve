@@ -2,6 +2,15 @@ package com.exam.Filter;
 
 import java.util.ArrayList;
 
+/**
+ * Classe che implementa il filtro "Cerca i tweets con una determinata parola nel testo, nome Utente o hashtag"
+ * 
+ * @param fields = campo a cui si vuole applicare il filtro (TextPost, NameUser o Hashtag)
+ * @param value = Parola da cercare.
+ * 
+ * @author Federica Ripani
+ */
+
 import com.exam.Interface.AbstractFilter;
 import com.exam.model.Tweet;
 
@@ -44,7 +53,11 @@ public class Search extends AbstractFilter{
 			break;
 		case "Hashtag":
 			if (equal) {
-				found = data.getHashtag().contains(value);
+				for(int i=0; i<data.getHashtag().length; i++) {
+					if (data.getHashtag()[i] == value)
+						found=true;
+				}
+				
 				if (found == false)
 					approvato = false;
 			} 

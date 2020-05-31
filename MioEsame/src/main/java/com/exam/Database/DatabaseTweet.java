@@ -62,8 +62,8 @@ public class DatabaseTweet{
 					 			  jsonUs.getString("screen_name"),         //nome user
 					 			  jsonUs.getInt("listed_count"),           //numero di post dello user
 					 			  language.getString("iso_language_code"), //lingua post
-					 			  mentions,                                    //menzioni
-					 			  hashtags));    //hashtag
+					 			  mentions,                                //menzioni
+					 			  hashtags));                              //hashtag
 			 
 			}
 	}
