@@ -80,8 +80,9 @@ public class Controller {
 	@GetMapping("/filtering")
 	public ResponseEntity filters(@RequestParam String filter) throws JSONException {
 		JSONObject filtro = new JSONObject(filter);
-		tipo=filtro.getString("type");
-		vett=FilterService(DatabaseTweet.getAll(),tipo).filters(tipo);
+		vett=FilterService(DatabaseTweet.getAll(),filtro);
+		//tipo=filtro.getString("type");
+		//vett=FilterService(DatabaseTweet.getAll(),tipo).filters(tipo);
 		
 		
 		/*JSONObject filtro = new JSONObject(filter);

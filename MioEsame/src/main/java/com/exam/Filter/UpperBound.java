@@ -14,12 +14,11 @@ import com.exam.Interface.*;
 
 public class UpperBound extends AbstractFilter  {
 	
-	private Boolean equal;
+
 	private int lower;
 	
-	public UpperBound(Boolean Equal, String fields, int lowers) {
+	public UpperBound(String fields, int lowers) {
 		super(fields);
-		this.equal = Equal;
 		setLower(lowers);
 	}
 	
