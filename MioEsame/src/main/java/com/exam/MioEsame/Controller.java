@@ -31,13 +31,17 @@ import com.exam.Service.*;
 @RestController
 public class Controller {
 	
-	private static DatabaseMetadata meta = new DatabaseMetadata();
-	private ArrayList<Tweet> vett= new ArrayList<Tweet>();
+	private DatabaseMetadata meta;
+	private ArrayList<Tweet> vett;
+	private ArrayList<Tweet> database;
 
 
 
 	public Controller() throws IOException {
-		ArrayList<Tweet> database = new DatabaseTweet().getAll();
+		vett= new ArrayList<Tweet>();
+		meta = new DatabaseMetadata();
+		database = new DatabaseTweet().getAll();
+		
 		System.out.println("\n\n|--------------------|");
 		System.out.println("|  APPLICATION READY |");
 		System.out.println("|--------------------|\n\n");
@@ -63,7 +67,8 @@ public class Controller {
 	
 	@GetMapping("/getTweets")
 	public ResponseEntity<ArrayList<Tweet>> Twit() {
-		return new ResponseEntity<ArrayList<Tweet>>(DatabaseTweet.getAll(), HttpStatus.OK);
+		
+		return new ResponseEntity<ArrayList<Tweet>>(database, HttpStatus.OK);
 	
 	}
 	
@@ -77,7 +82,7 @@ public class Controller {
 	 * @throws JSONException 
 	 */
 	
-	@SuppressWarnings("rawtypes")
+	/*@SuppressWarnings("rawtypes")
 	@GetMapping("/filtering")
 	public ResponseEntity filters(@RequestParam String filter) throws JSONException {
 		JSONObject filtro = new JSONObject(filter);
@@ -86,7 +91,8 @@ public class Controller {
 			return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
 		
 		return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
-	}
+		
+	}*/
 		//tipo=filtro.getString("type");
 		//vett=FilterService(DatabaseTweet.getAll(),tipo).filters(tipo);
 		

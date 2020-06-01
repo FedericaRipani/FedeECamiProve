@@ -18,10 +18,8 @@ import com.exam.Service.*;
 
 public class DatabaseTweet{
 	
-	private static ArrayList<Tweet> tweets;
+	private ArrayList<Tweet> tweets;
 	private JSONArray JsonArray;
-	
-
 	
 	public DatabaseTweet() throws IOException{
 		
@@ -33,9 +31,11 @@ public class DatabaseTweet{
 			 JSONObject json = JsonArray.getJSONObject(i);
 			 JSONObject jsonEnt = JsonArray.getJSONObject(i).getJSONObject("entities");
 			 JSONObject jsonUs = JsonArray.getJSONObject(i).getJSONObject("user");
-			 JSONArray jsonUsMent = new JSONArray (jsonEnt.get("user_mentions"));
+			 
+			 JSONArray jsonUsMent = new JSONArray (jsonEnt.get("user_mentions").toString());
 			 JSONArray jsonHashtags = new JSONArray (jsonEnt.get("hashtags").toString());
 			 JSONObject language = JsonArray.getJSONObject(i).getJSONObject("metadata");
+			 
 			 //String Hashtag = TextHashtag(jsonHashtags);
 			// String Mention = Mentions(jsonUsMent);
 			 
@@ -52,8 +52,6 @@ public class DatabaseTweet{
 				 hashtags[k] = jsonHashtags.getJSONObject(k).getString("text");
 			 }
 			 
-			 
-			 
 			
 			 tweets.add(new Tweet(json.getString("created_at"),            //data
 					 			  json.getInt("id_str"),                   //id post
@@ -68,7 +66,7 @@ public class DatabaseTweet{
 			}
 	}
 	
-	public static ArrayList<Tweet> getAll() {
+	public ArrayList<Tweet> getAll() {
 		return tweets;
 	}
 	

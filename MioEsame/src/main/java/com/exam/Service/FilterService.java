@@ -69,7 +69,7 @@ public class FilterService {
 		break;
 		}
 	default:
-		return vett.
+		//return vett.
 		}
 	return vett ;
 	}
