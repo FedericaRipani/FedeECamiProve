@@ -22,6 +22,7 @@ public class FilterService {
 	public ArrayList<Tweet> twits;
 	public Boolean flag;
 
+	@SuppressWarnings("deprecation")
 	public FilterService() {
 
 		flag = new Boolean(false);

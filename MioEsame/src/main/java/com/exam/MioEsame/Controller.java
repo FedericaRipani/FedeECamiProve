@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exam.Database.DatabaseMetadata;
 import com.exam.Database.DatabaseTweet;
-import com.exam.Filter.*;
 import com.exam.model.Metadati;
 import com.exam.model.Tweet;
 import com.exam.Service.*;
