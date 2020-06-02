@@ -35,9 +35,12 @@ public class Controller {
 	private ArrayList<Tweet> vett;
 	private ArrayList<Tweet> database;
 	private Boolean val;
-
+	private FilterService filterService;
 
 	public Controller() throws IOException {
+		
+		filterService = new FilterService();
+		
 		vett= new ArrayList<Tweet>();
 		meta = new DatabaseMetadata();
 		database = new DatabaseTweet().getAll();
@@ -86,87 +89,21 @@ public class Controller {
 	@GetMapping("/filtering")
 	public ResponseEntity filters(@RequestParam String filter) throws JSONException {
 		JSONObject filtro = new JSONObject(filter);
-		vett= new FilterService().filters(DatabaseTweet.getAll(), filtro);
-		val=new FilterService().getFlag();
+		vett = filterService.filters(database, filtro);
+		val= filterService.getFlag();
+		System.out.println(val);
+		
 		if(val==false)
 			return new ResponseEntity<String>("Nessun filtro selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
-		else if (vett.size() == 0)
+		
+		if (vett.size() == 0)
 			return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
 		else
 			return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
 		
 	}
 	
-	/*@SuppressWarnings("rawtypes")
-	@GetMapping("/filtering")
-	public ResponseEntity filters(@RequestParam String filter) throws JSONException {
-		JSONObject filtro = new JSONObject(filter);
-		vett= new FilterService().filters(DatabaseTweet.getAll(), filtro);
-		if (vett.size() == 0)
-			return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
-		
-		return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
-		
-	}*/
-		//tipo=filtro.getString("type");
-		//vett=FilterService(DatabaseTweet.getAll(),tipo).filters(tipo);
-		
-		
-		/*JSONObject filtro = new JSONObject(filter);
-		
-		
-		switch (filtro.getString("type")) {
-
-		case "UpperBound":{
-			  UpperBound up = new UpperBound(filtro.getString("fields"), filtro.getInt("lower"));
-			  vett = up.apply(DatabaseTweet.getAll(), false);
-			  break;
-			}
-		
-		case "UpperBoundE":{
-			  UpperBound up = new UpperBound(filtro.getString("fields"), filtro.getInt("lower"));
-			  vett = up.apply(DatabaseTweet.getAll(), true);
-			  break;
-			}
-		
-		case "LowerBound":{
-			LowerBound lo = new LowerBound(filtro.getString("fields"), filtro.getInt("upper"));
-			vett = lo.apply(DatabaseTweet.getAll(), false);
-			break;
-			}
-		
-		case "LowerBoundE":{
-			LowerBound lo = new LowerBound(filtro.getString("fields"), filtro.getInt("upper"));
-			vett = lo.apply(DatabaseTweet.getAll(), true);
-			break;
-			}
-		
-		case "Included":{
-			Included in = new Included(filtro.getString("fields"), filtro.getInt("lower"),filtro.getInt("upper"));
-			vett = in.apply(DatabaseTweet.getAll(), false);
-			break;
-			}
-		
-		case "IncludedE":{
-			Included in = new Included(filtro.getString("fields"), filtro.getInt("lower"), filtro.getInt("upper"));
-			vett = in.apply(DatabaseTweet.getAll(), true);
-			break;
-			}
-		
-		case "Search":{
-			Search se = new Search(filtro.getString("fields"), filtro.getString("value"));
-			vett = se.apply(DatabaseTweet.getAll(), true);
-			break;
-			}
-		default:
-			return new ResponseEntity<String>("Nessun filtro selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
-			
-		}
-		if (vett.size() == 0)
-			return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
-		
-		return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
-	}*/
+	
 }
 		
 	
