@@ -1,5 +1,4 @@
 package com.exam.Service;
-import com.exam.Database.DatabaseTweet;
 import com.exam.Filter.*;
 import com.exam.model.Tweet;
 import java.util.ArrayList;
@@ -13,6 +12,7 @@ public class FilterService {
 	public ArrayList<Tweet> vett;
 	public JSONObject filtro;
 	public ArrayList<Tweet> twits = new ArrayList<Tweet>();
+	public Boolean flag=true;
 	
 	public FilterService() {
 		
@@ -22,7 +22,16 @@ public class FilterService {
 		this.vett = vett;
 		this.filtro=filtro; 
 	}
+	
+	public  Boolean getFlag() {
+		return flag;
+	}
 
+
+
+	public void setFlag(Boolean flag) {
+		this.flag = flag;
+	}
 
 	public  ArrayList<Tweet> filters(ArrayList<Tweet> twits, JSONObject filtro) throws JSONException {
 	switch (filtro.getString("type")) {
@@ -68,8 +77,7 @@ public class FilterService {
 		vett = se.apply(twits, true);
 		break;
 		}
-	default:
-		//return vett.
+	default:flag=false;
 		}
 	return vett ;
 	}

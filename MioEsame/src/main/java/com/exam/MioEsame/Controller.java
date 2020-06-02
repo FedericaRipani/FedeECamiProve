@@ -34,7 +34,7 @@ public class Controller {
 	private DatabaseMetadata meta;
 	private ArrayList<Tweet> vett;
 	private ArrayList<Tweet> database;
-
+	private Boolean val;
 
 
 	public Controller() throws IOException {
@@ -81,6 +81,21 @@ public class Controller {
 	 * per adesempio una mal-implementazione
 	 * @throws JSONException 
 	 */
+	
+	@SuppressWarnings("rawtypes")
+	@GetMapping("/filtering")
+	public ResponseEntity filters(@RequestParam String filter) throws JSONException {
+		JSONObject filtro = new JSONObject(filter);
+		vett= new FilterService().filters(DatabaseTweet.getAll(), filtro);
+		val=new FilterService().getFlag();
+		if(val==false)
+			return new ResponseEntity<String>("Nessun filtro selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
+		else if (vett.size() == 0)
+			return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
+		else
+			return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
+		
+	}
 	
 	/*@SuppressWarnings("rawtypes")
 	@GetMapping("/filtering")
