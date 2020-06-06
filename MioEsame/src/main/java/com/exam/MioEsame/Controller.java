@@ -17,8 +17,8 @@ import com.exam.Database.DatabaseTweet;
 import com.exam.model.Metadati;
 import com.exam.model.Tweet;
 import com.exam.Service.*;
-import com.exam.Statistic.IntegerStat;
-import com.exam.Statistic.StringStat;
+import com.exam.Statistic.*;
+
 
 /**
  * 
@@ -37,14 +37,17 @@ public class Controller {
 	private ArrayList<Tweet> database;
 	private Boolean val;
 	private FilterService filterService;
+	private Map<String, Object> map;
+	private StatsService statService;
 
 	public Controller() throws IOException {
 		
+		map=new HashMap<String, Object>();
 		filterService = new FilterService();
-		
 		vett= new ArrayList<Tweet>();
 		meta = new DatabaseMetadata();
 		database = new DatabaseTweet().getAll();
+		statService= new StatsService();
 		
 		System.out.println("\n\n|--------------------|");
 		System.out.println("|  APPLICATION READY |");
@@ -116,17 +119,24 @@ public class Controller {
 	@GetMapping("/stats")
 	public ResponseEntity statistiche(@RequestParam(required = true) String field,
 			@RequestParam(required = false, defaultValue = "") String filter) throws JSONException {
+		map=statService.calculStat(database, field, filter);
+		val=statService.getFlag();
+		if(val==false)
+			return new ResponseEntity<String>("Nessun filtro selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
+		else
+			return new ResponseEntity<Map<String, Object>>(map,HttpStatus.OK);
 		
+		/*
 		if (filter.isEmpty()) {
 			
-			/* stats per i campi di tipo stringa */
+			
 			if (Arrays.asList("data", "textPost", "nameUser", "languagePost", "userMentions", "hashtag").contains(field)) {
 				StringStat stat = new StringStat(database, field);
 				return new ResponseEntity<Map<String, Object>>(stat.getStat().getStringhe(), HttpStatus.OK);
 
 			}
 
-			/* stats per i campi di tipo numerico */
+			
 			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
 				IntegerStat stat = new IntegerStat(database, field);
 				return new ResponseEntity<Map<String, Object>>(stat.getStat().getNumerici(), HttpStatus.OK);
@@ -139,11 +149,11 @@ public class Controller {
 		
 
 		return new ResponseEntity<String>("Field immesso inesistente", HttpStatus.NOT_IMPLEMENTED);
-	
+	*/
 	}
-	
-	
 }
+	
+
 		
 	
 

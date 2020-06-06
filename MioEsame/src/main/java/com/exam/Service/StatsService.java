@@ -1,8 +1,8 @@
 package com.exam.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
+
+
 
 
 import com.exam.Statistic.*;
@@ -17,6 +17,7 @@ public class StatsService {
     public Boolean flag;
 	
 	
+	@SuppressWarnings("deprecation")
 	public StatsService() {
 		
 		flag = new Boolean(false);
@@ -97,19 +98,23 @@ public class StatsService {
 			/* stats per i campi di tipo stringa */
 			if (Arrays.asList("data", "textPost", "nameUser", "languagePost", "userMentions", "hashtag").contains(field)) {
 				StringStat stat = new StringStat(database, field);
-				return new <Map<String, Object>>(stat.getStat());
+				flag=true;
+				return new Map<String, Object>(stat.getStat());
 
 			}
 
 			/* stats per i campi di tipo numerico */
 			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
 				IntegerStat stat = new IntegerStat(database, field);
-				return new <Map<String, Object>>(IntegerStat.getStat());
+				flag=true;
+				return new Map<String, Object>(stat.getStat());
 				}
 			}
-		
-	}
-	
+
+		}
+	public Boolean getFlag() {
+		return flag;
+	}	
 	
 	
 }

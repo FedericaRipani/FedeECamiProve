@@ -1,7 +1,7 @@
 package com.exam.Interface;
 
 import java.util.ArrayList;
-import java.util.Map;
+
 
 import com.exam.model.Tweet;
 /** 
