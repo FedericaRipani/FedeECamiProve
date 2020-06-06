@@ -1,6 +1,11 @@
 package com.exam.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Map;
+
+
+import com.exam.Statistic.*;
 
 import com.exam.model.Tweet;
 
@@ -75,4 +80,26 @@ public class StatsService {
 		}
 		return ids;
 	}
+	
+	public Map<String, Object> calculStat(ArrayList<Tweet> database,String field, String filter){
+			if (filter.isEmpty()) {
+			
+			/* stats per i campi di tipo stringa */
+			if (Arrays.asList("data", "textPost", "nameUser", "languagePost", "userMentions", "hashtag").contains(field)) {
+				StringStat stat = new StringStat(database, field);
+				return new <Map<String, Object>>(stat.getStat());
+
+			}
+
+			/* stats per i campi di tipo numerico */
+			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
+				IntegerStat stat = new IntegerStat(database, field);
+				return new <Map<String, Object>>(IntegerStat.getStat());
+				}
+			}
+		
+	}
+	
+	
+	
 }
