@@ -2,10 +2,11 @@ package com.exam.Statistic;
 
 import java.util.ArrayList;
 
-import com.exam.Interface.AbstactStatistic;
+import com.exam.Interface.*;
 import com.exam.model.Tweet;
+import com.exam.Service.*;
 
-public class Max extends AbstactStatistic {
+public class Max  extends AbstactStatistic {
 	
 	public Max() {
 		
@@ -19,7 +20,7 @@ public class Max extends AbstactStatistic {
 	 * @return massimo (int)
 	 */
 	public int calcola(ArrayList<Tweet> vett, String field) {
-		ArrayList<Integer> temp = conv(vett, field);
+		ArrayList<Integer> temp = new StatsService().convInt(vett, field);
 
 		if (temp.size() == 0)
 			return 0;

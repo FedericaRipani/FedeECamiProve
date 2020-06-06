@@ -6,12 +6,13 @@ import java.util.Map;
 
 import org.json.JSONException;
 
+import com.exam.Interface.AbstactStatistic;
 import com.exam.model.Tweet;
 
-public class IntegerStat extends AbstractStatistic(){
+public class IntegerStat extends AbstactStatistic(){
 	
 
-		private Stats T;
+		private  T;
 
 		public IntegerStat(ArrayList<Tweet> vett, String field) throws JSONException {
 

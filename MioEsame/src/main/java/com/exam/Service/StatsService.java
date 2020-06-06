@@ -11,10 +11,6 @@ public class StatsService {
 		
 	}
 	
-	
-
-	
-	
 	/**
 	 * Crea una collezione di attributi della concessione in base al field
 	 * 
@@ -22,7 +18,7 @@ public class StatsService {
 	 * @param field attributo desiderato
 	 * @return collezione di interi
 	 */
-	protected static ArrayList<Integer> convInt(ArrayList<Tweet> vett, String field) {
+	public static ArrayList<Integer> convInt(ArrayList<Tweet> vett, String field) {
 		 ArrayList<Integer> ids = new ArrayList<Integer>();
 		for (Tweet thing : vett) {
 			switch (field) {
@@ -50,7 +46,7 @@ public class StatsService {
 	 * @param field attributo desiderato
 	 * @return collezione di stringhe
 	 */
-	protected static ArrayList<String> convstr(ArrayList<Tweet> vett, String field) {
+	protected static ArrayList<String> convStr(ArrayList<Tweet> vett, String field) {
 		ArrayList<String> ids = new ArrayList<String>();
 		for (Tweet thing : vett) {
 			switch (field) {
