@@ -9,21 +9,35 @@ import org.json.JSONException;
 import com.exam.Interface.AbstactStatistic;
 import com.exam.model.Tweet;
 
-public class IntegerStat extends AbstactStatistic(){
+public class IntegerStat extends Stats{
+	
+	
+	private  Stats T;
+	private double sum;
+	private double min;
+	private double max;
+	private double avg;
+	
+	
+	
+	public IntegerStat() {
+		
+		
+	}
 	
 
-		private  T;
+	
 
 		public IntegerStat(ArrayList<Tweet> vett, String field) throws JSONException {
 
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("Field", field);
-			map.put("Sommatoria", Op.sum(vett, field));
-			map.put("Minimo", Op.minimum(vett, field));
-			map.put("Massimo", Op.maximum(vett, field));
-			map.put("Media", Op.avg(vett, field));
-			map.put("Deviazione STD", Op.devstd(vett, field));
-			map.put("Count", Op.count(vett));
+			map.put("Sommatoria", sum = new Sum().calcola(vett, field));
+			map.put("Minimo", min = new Min().calcola(vett, field));
+			map.put("Massimo", max = new Max().calcola(vett, field));
+			map.put("Media", avg = new Average().calcola(vett, field));
+			
+			
 
 			T = new Stats(map, true);
 		}
