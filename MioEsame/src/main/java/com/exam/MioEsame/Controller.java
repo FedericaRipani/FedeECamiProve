@@ -37,12 +37,12 @@ public class Controller {
 	private ArrayList<Tweet> database;
 	private Boolean val;
 	private FilterService filterService;
-	private Map<String, Object> map;
+	private Stats map;
 	private StatsService statService;
 
 	public Controller() throws IOException {
 		
-		map=new HashMap<String, Object>();
+		map=new Stats();
 		filterService = new FilterService();
 		vett= new ArrayList<Tweet>();
 		meta = new DatabaseMetadata();
@@ -124,7 +124,7 @@ public class Controller {
 		if(val==false)
 			return new ResponseEntity<String>("Nessun filtro selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
 		else
-			return new ResponseEntity<Map<String, Object>>(map,HttpStatus.OK);
+			return new ResponseEntity<Stats>(map,HttpStatus.OK);
 		
 		/*
 		if (filter.isEmpty()) {

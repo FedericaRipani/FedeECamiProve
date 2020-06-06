@@ -14,7 +14,7 @@ public class Occurence {
 		
 	}
 	
-	public static Map<String, Object> occorrence(ArrayList<Tweet> vett, String field) throws JSONException {
+	public Map<String, Object> occorrence(ArrayList<Tweet> vett, String field) throws JSONException {
 
 		ArrayList<String> vett_c = new StatsService().convStr(vett, field);
 		Map<String, Object> map = new HashMap<String, Object>();

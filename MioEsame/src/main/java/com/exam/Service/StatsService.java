@@ -90,7 +90,7 @@ public class StatsService {
 		return ids;
 	}
 	
-	public Map<String, Object> calculStat(ArrayList<Tweet> database,String field, String filter){
+	public Stats calculStat(ArrayList<Tweet> database,String field, String filter){
 		
 		
 			if (filter.isEmpty()) {
@@ -99,7 +99,7 @@ public class StatsService {
 			if (Arrays.asList("data", "textPost", "nameUser", "languagePost", "userMentions", "hashtag").contains(field)) {
 				StringStat stat = new StringStat(database, field);
 				flag=true;
-				return new Map<String, Object>(stat.getStat());
+				return stat.getStat();
 
 			}
 
@@ -107,10 +107,10 @@ public class StatsService {
 			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
 				IntegerStat stat = new IntegerStat(database, field);
 				flag=true;
-				return new Map<String, Object>(stat.getStat());
+				return stat.getStat();
 				}
 			}
-
+			return null;
 		}
 	public Boolean getFlag() {
 		return flag;
