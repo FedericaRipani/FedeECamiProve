@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.json.JSONException;
 
-import com.exam.Interface.AbstactStatistic;
+
 import com.exam.model.Tweet;
 
 public class IntegerStat extends Stats{
@@ -29,7 +29,7 @@ public class IntegerStat extends Stats{
 	
 
 		public IntegerStat(ArrayList<Tweet> vett, String field) throws JSONException {
-
+			super();
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("Field", field);
 			map.put("Sommatoria", sum = new Sum().calcola(vett, field));
@@ -37,9 +37,7 @@ public class IntegerStat extends Stats{
 			map.put("Massimo", max = new Max().calcola(vett, field));
 			map.put("Media", avg = new Average().calcola(vett, field));
 			
-			
-
-			T = new Stats(map, true);
+			T = new Stats(map);
 		}
 
 		public Stats getStat() {
