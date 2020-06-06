@@ -19,7 +19,7 @@ public class Max  extends AbstactStatistic {
 	 * @param field attributo su cui calcolare la statistica
 	 * @return massimo (int)
 	 */
-	public int calcola(ArrayList<Tweet> vett, String field) {
+	public double calcola(ArrayList<Tweet> vett, String field) {
 		ArrayList<Integer> temp = new StatsService().convInt(vett, field);
 
 		if (temp.size() == 0)

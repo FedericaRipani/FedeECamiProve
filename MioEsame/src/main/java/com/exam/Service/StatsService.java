@@ -18,7 +18,7 @@ public class StatsService {
 	 * @param field attributo desiderato
 	 * @return collezione di interi
 	 */
-	public static ArrayList<Integer> convInt(ArrayList<Tweet> vett, String field) {
+	public  ArrayList<Integer> convInt(ArrayList<Tweet> vett, String field) {
 		 ArrayList<Integer> ids = new ArrayList<Integer>();
 		for (Tweet thing : vett) {
 			switch (field) {
@@ -46,7 +46,7 @@ public class StatsService {
 	 * @param field attributo desiderato
 	 * @return collezione di stringhe
 	 */
-	protected static ArrayList<String> convStr(ArrayList<Tweet> vett, String field) {
+	public ArrayList<String> convStr(ArrayList<Tweet> vett, String field) {
 		ArrayList<String> ids = new ArrayList<String>();
 		for (Tweet thing : vett) {
 			switch (field) {

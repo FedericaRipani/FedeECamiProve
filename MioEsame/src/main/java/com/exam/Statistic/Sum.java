@@ -3,6 +3,7 @@ package com.exam.Statistic;
 import java.util.ArrayList;
 
 import com.exam.Interface.AbstactStatistic;
+import com.exam.Service.StatsService;
 import com.exam.model.Tweet;
 
 public class Sum extends AbstactStatistic {
@@ -18,9 +19,9 @@ public class Sum extends AbstactStatistic {
 	 * @param field attributo su cui calcolare la statistica
 	 * @return somma (int)
 	 */
-	public int calcola(ArrayList<Tweet> vett, String field) {
+	public double calcola(ArrayList<Tweet> vett, String field) {
 		int somma = 0;
-		ArrayList<Integer> temp = conv(vett, field);
+		ArrayList<Integer> temp = new StatsService().convInt(vett, field);
 		for (int i = 0; i < temp.size(); i++)
 			somma = somma + temp.get(i);
 		return somma;

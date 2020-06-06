@@ -2,9 +2,10 @@ package com.exam.Statistic;
 
 import java.util.ArrayList;
 
+import com.exam.Interface.AbstactStatistic;
 import com.exam.model.Tweet;
 
-public class Average {
+public class Average extends AbstactStatistic {
 	public Average() {
 		
 	}
@@ -16,8 +17,8 @@ public class Average {
 	 * @param field attributo su cui calcolare la statistica
 	 * @return media (double)
 	 */
-	public static double avg(ArrayList<Tweet> vett, String field) {
-		return sum(vett, field) / vett.size();
+	public double calcola(ArrayList<Tweet> vett, String field) {
+		return	new Sum().calcola(vett, field) / vett.size();
 	}
 
 }
