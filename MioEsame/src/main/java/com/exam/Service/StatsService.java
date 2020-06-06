@@ -10,9 +10,17 @@ import com.exam.Statistic.*;
 import com.exam.model.Tweet;
 
 public class StatsService {
-
+	
+    public String field;
+    public String filter;
+    public ArrayList<Tweet> database;
+    public Boolean flag;
+	
+	
 	public StatsService() {
 		
+		flag = new Boolean(false);
+		database = new ArrayList<Tweet>();
 		
 	}
 	
@@ -82,6 +90,8 @@ public class StatsService {
 	}
 	
 	public Map<String, Object> calculStat(ArrayList<Tweet> database,String field, String filter){
+		
+		
 			if (filter.isEmpty()) {
 			
 			/* stats per i campi di tipo stringa */
