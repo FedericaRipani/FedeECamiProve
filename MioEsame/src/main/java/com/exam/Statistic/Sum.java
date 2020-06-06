@@ -6,6 +6,11 @@ import com.exam.Interface.AbstactStatistic;
 import com.exam.model.Tweet;
 
 public class Sum extends AbstactStatistic {
+	
+	public Sum() {
+		
+	}
+	
 	/**
 	 * Calcola la somma di una collezione di interi
 	 * 

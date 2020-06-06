@@ -6,6 +6,10 @@ import com.exam.Interface.AbstactStatistic;
 import com.exam.model.*;
 
 public class Min extends AbstactStatistic {
+	
+	public Min() {
+		
+	}
 	/**
 	 * Calcola il minimo di una collezione di interi
 	 * 

@@ -1,6 +1,7 @@
 package com.exam.Interface;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import com.exam.model.Tweet;
 /** 
@@ -13,5 +14,17 @@ import com.exam.model.Tweet;
  */
 public abstract class AbstactStatistic {
 	
+	private Map<String, Object> map;
+	
+	public AbstactStatistic() {
+		
+	}
+	
+    public abstract void Stats(Map<String, Object> map, boolean numbers);
+		
+	
 	public abstract int calcola(ArrayList<Tweet> vett, String field);
+	
+	
+	
 }

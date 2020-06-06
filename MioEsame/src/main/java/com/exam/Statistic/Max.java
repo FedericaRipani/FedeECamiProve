@@ -6,6 +6,11 @@ import com.exam.Interface.AbstactStatistic;
 import com.exam.model.Tweet;
 
 public class Max extends AbstactStatistic {
+	
+	public Max() {
+		
+	}
+	
 	/**
 	 * Calcola il massimo di una collezione di interi
 	 * 

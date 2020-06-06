@@ -17,6 +17,8 @@ import com.exam.Database.DatabaseTweet;
 import com.exam.model.Metadati;
 import com.exam.model.Tweet;
 import com.exam.Service.*;
+import com.exam.Statistic.IntegerStat;
+import com.exam.Statistic.StringStat;
 
 /**
  * 
@@ -100,6 +102,44 @@ public class Controller {
 		else
 			return new ResponseEntity<ArrayList<Tweet>>(vett, HttpStatus.OK);
 		
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param field
+	 * @param filter
+	 * @return
+	 * @throws JSONException
+	 */
+	@SuppressWarnings("rawtypes")
+	@GetMapping("/stats")
+	public ResponseEntity statistiche(@RequestParam(required = true) String field,
+			@RequestParam(required = false, defaultValue = "") String filter) throws JSONException {
+		
+		if (filter.isEmpty()) {
+			
+			/* stats per i campi di tipo stringa */
+			if (Arrays.asList("data", "textPost", "nameUser", "languagePost", "userMentions", "hashtag").contains(field)) {
+				StringStat stat = new StringStat(database, field);
+				return new ResponseEntity<Map<String, Object>>(stat.getStat().getStringhe(), HttpStatus.OK);
+
+			}
+
+			/* stats per i campi di tipo numerico */
+			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
+				IntegerStat stat = new IntegerStat(database, field);
+				return new ResponseEntity<Map<String, Object>>(stat.getStat().getNumerici(), HttpStatus.OK);
+
+			}
+		}
+		
+		
+		
+		
+
+		return new ResponseEntity<String>("Field immesso inesistente", HttpStatus.NOT_IMPLEMENTED);
+	
 	}
 	
 	
