@@ -41,6 +41,7 @@ public class StatsService {
 				break;
 			case "idPost":
 				ids.add(thing.getIdPost());
+				System.out.println("Sono entrato in id");
 				break;
 			case "idUser":
 				ids.add(thing.getIdUser());
@@ -64,7 +65,7 @@ public class StatsService {
 		ArrayList<String> ids = new ArrayList<String>();
 		for (Tweet thing : vett) {
 			switch (field) {
-			case "Data":
+			case "data":
 				ids.add(thing.getData());
 				break;
 			case "textPost":
@@ -83,6 +84,7 @@ public class StatsService {
 				ids.add(thing.getUserMentions().toString());
 				break;
 			default:
+				System.out.println("Default");
 				return null;
 			}
 
@@ -97,6 +99,7 @@ public class StatsService {
 			
 			/* stats per i campi di tipo stringa */
 			if (Arrays.asList("data", "textPost", "nameUser", "languagePost", "userMentions", "hashtag").contains(field)) {
+				
 				StringStat stat = new StringStat(database, field);
 				flag=true;
 				return stat.getStat();

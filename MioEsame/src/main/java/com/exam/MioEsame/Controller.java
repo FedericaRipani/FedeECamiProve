@@ -122,34 +122,11 @@ public class Controller {
 		map=statService.calculStat(database, field, filter);
 		val=statService.getFlag();
 		if(val==false)
-			return new ResponseEntity<String>("Nessun filtro selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
+			return new ResponseEntity<String>("Nessuna statistica selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
 		else
 			return new ResponseEntity<Stats>(map,HttpStatus.OK);
 		
-		/*
-		if (filter.isEmpty()) {
-			
-			
-			if (Arrays.asList("data", "textPost", "nameUser", "languagePost", "userMentions", "hashtag").contains(field)) {
-				StringStat stat = new StringStat(database, field);
-				return new ResponseEntity<Map<String, Object>>(stat.getStat().getStringhe(), HttpStatus.OK);
-
-			}
-
-			
-			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
-				IntegerStat stat = new IntegerStat(database, field);
-				return new ResponseEntity<Map<String, Object>>(stat.getStat().getNumerici(), HttpStatus.OK);
-
-			}
-		}
 		
-		
-		
-		
-
-		return new ResponseEntity<String>("Field immesso inesistente", HttpStatus.NOT_IMPLEMENTED);
-	*/
 	}
 }
 	

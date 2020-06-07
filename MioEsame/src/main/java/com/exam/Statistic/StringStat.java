@@ -11,19 +11,19 @@ import com.exam.model.Tweet;
 public class StringStat {
 	
 	private Stats T;
-	private Occurence occ;
+
 	
 	public StringStat() {
-		occ = new Occurence();
-		
 	}
 	
 
 	public StringStat(ArrayList<Tweet> vett, String field) throws JSONException {
 		
 		super();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map = new Occurence().occorrence(vett, field);
 		
-		T = new Stats(occ.occorrence(vett, field));
+		T = new Stats(map);
 	}
 
 	public Stats getStat() {
