@@ -37,8 +37,8 @@ class testProva {
 
 	@Test
 	void test() {
-		assertEquals("230599",max);
-		fail("Not yet implemented");
+		assertEquals(230599,max);
+		
 	}
 
 }
