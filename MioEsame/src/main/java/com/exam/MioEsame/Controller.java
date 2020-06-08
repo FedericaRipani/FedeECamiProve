@@ -95,10 +95,9 @@ public class Controller {
 		JSONObject filtro = new JSONObject(filter);
 		vett = filterService.filters(database, filtro);
 		val= filterService.getFlag();
-		System.out.println(val);
 		
 		if(val==false)
-			return new ResponseEntity<String>("Nessun filtro selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
+			return new ResponseEntity<String>("Nessun filtro selezionata/esistente", HttpStatus.NOT_IMPLEMENTED);
 		
 		if (vett.size() == 0)
 			return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
@@ -119,14 +118,33 @@ public class Controller {
 	@GetMapping("/stats")
 	public ResponseEntity statistiche(@RequestParam(required = true) String field,
 			@RequestParam(required = false, defaultValue = "") String filter) throws JSONException {
+		
+		if (filter.isEmpty()) {
 		map=statService.calculStat(database, field, filter);
 		val=statService.getFlag();
 		if(val==false)
-			return new ResponseEntity<String>("Nessuna statistica selezionato/esistente", HttpStatus.NOT_IMPLEMENTED);
+			return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.NOT_IMPLEMENTED);
 		else
 			return new ResponseEntity<Stats>(map,HttpStatus.OK);
+		}
 		
+	     if (!filter.isEmpty()) {
+			
+			if(filters(filter).getStatusCode() != HttpStatus.OK) return new ResponseEntity<String>("Selezione dati per statistiche vuota", HttpStatus.NOT_FOUND);
+
+				@SuppressWarnings("unchecked")
+				ArrayList<Tweet> filtrati = (ArrayList<Tweet>)filters(filter).getBody();
+				
+				map=statService.calculStat(filtrati, field, filter);
+				val=statService.getFlag();
+				if(val==false)
+					return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.NOT_IMPLEMENTED);
+				else
+					return new ResponseEntity<Stats>(map,HttpStatus.OK);
+
 		
+	     }
+	     return new ResponseEntity<String>("Selezione dati vuota", HttpStatus.NOT_FOUND);
 	}
 }
 	

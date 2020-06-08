@@ -1,9 +1,7 @@
 package com.exam.Service;
 
 import java.util.*;
-import com.exam.MioEsame.*;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 
 
 import com.exam.Statistic.*;
@@ -42,7 +40,6 @@ public class StatsService {
 				break;
 			case "idPost":
 				ids.add(thing.getIdPost());
-				System.out.println("Sono entrato in id");
 				break;
 			case "idUser":
 				ids.add(thing.getIdUser());
@@ -85,7 +82,6 @@ public class StatsService {
 				ids.add(thing.getUserMentions().toString());
 				break;
 			default:
-				System.out.println("Default");
 				return null;
 			}
 
@@ -94,12 +90,10 @@ public class StatsService {
 	}
 	
 	public Stats calculStat(ArrayList<Tweet> database,String field, String filter){
-		
-		
-			if (filter.isEmpty()) {
+			
 			
 			/* stats per i campi di tipo stringa */
-			if (Arrays.asList("data", "textPost", "nameUser", "languagePost", "userMentions", "hashtag").contains(field)) {
+			if (Arrays.asList("data", "textPost", "nameUser", "languagePost").contains(field)) {
 				
 				StringStat stat = new StringStat(database, field);
 				flag=true;
@@ -113,37 +107,9 @@ public class StatsService {
 				flag=true;
 				return stat.getStat();
 				}
-			}
-			//return null;
 			
-			else if (!filter.isEmpty()) {
+			return null;
 			
-			//if(filters(filter).getStatusCode() != HttpStatus.OK) return new ResponseEntity<String>("Selezione dati per statistiche vuota", HttpStatus.NOT_FOUND);
-
-			/*
-			 * se il campo immesso è giusto e il filtro produrrà una risposta giusta (cioè
-			 * esiste) calcoliamo le stats*/
-			 
-			if (Arrays.asList("data", "textPost", "nameUser", "languagePost").contains(field)) {
-
-				@SuppressWarnings("unchecked")
-				ArrayList<Tweet> filtrati = (ArrayList<Tweet>)filters(filter).getBody();
-				StringStat stat = new StringStat(filtrati, field);
-				return stat.getStat();
-			}
-
-			/*
-			 * se il campo immesso è giusto e il filtro produrrà una risposta giusta (cioè
-			 * esiste) calcoliamo le stats*/
-			 
-			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
-
-				@SuppressWarnings("unchecked")
-				ArrayList<Tweet> filtrati = (ArrayList<Tweet>)filters(filter).getBody();
-				IntegerStat stat = new IntegerStat(filtrati, field);
-				return stat.getStat();
-			}
-		}
 		
 		}
 	public Boolean getFlag() {
