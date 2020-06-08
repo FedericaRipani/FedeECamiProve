@@ -1,5 +1,11 @@
 package com.exam.Statistic;
-
+/**
+ * Classe padre che contiene una mappa,
+ * le quali figlie andranno ad ereditare come nuovo tipo.
+ * 
+ * @author Camilla D'Andrea
+ * @author Federica Ripani
+ */
 import java.util.Map;
 
 public class Stats {
@@ -11,8 +17,6 @@ public class Stats {
 	}
 	
 	public Stats() {
-		
-	
 	}
 
 	public Map<String, Object> getM() {

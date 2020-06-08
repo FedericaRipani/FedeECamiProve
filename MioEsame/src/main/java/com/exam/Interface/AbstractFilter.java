@@ -8,10 +8,12 @@ import com.exam.model.Tweet;
 
 /**
  * 
- * Classe astratta creata per includere i filtri logici e condizionali da
- * implementare. I filtri dovranno di conseguenza implementare i metodi approved
- * e applica.
+ * Classe astratta creata per includere i metodi che ogni singolo
+ * filtro dovrà implementare.
+ * I filtri dovranno di conseguenza implementare i metodi approved
+ * e apply.
  *
+ *@author Federica Ripani
  */
 
 public abstract class AbstractFilter {

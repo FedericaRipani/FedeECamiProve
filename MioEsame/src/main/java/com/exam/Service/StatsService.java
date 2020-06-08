@@ -2,6 +2,13 @@ package com.exam.Service;
 
 import java.util.*;
 
+/**
+ * Service dedicato al calcolo delle statistiche
+ * richiamato nel controller
+ * 
+ * @author Federica Ripani
+ * 
+ */
 
 
 import com.exam.Statistic.*;
@@ -96,7 +103,7 @@ public class StatsService {
 			if (Arrays.asList("data", "textPost", "nameUser", "languagePost").contains(field)) {
 				
 				StringStat stat = new StringStat(database, field);
-				flag=true;
+				//flag=true;
 				return stat.getStat();
 
 			}
@@ -104,7 +111,7 @@ public class StatsService {
 			/* stats per i campi di tipo numerico */
 			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
 				IntegerStat stat = new IntegerStat(database, field);
-				flag=true;
+				//flag=true;
 				return stat.getStat();
 				}
 			

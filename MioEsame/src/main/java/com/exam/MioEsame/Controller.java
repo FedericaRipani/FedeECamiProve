@@ -122,9 +122,9 @@ public class Controller {
 		if (filter.isEmpty()) {
 		map=statService.calculStat(database, field, filter);
 		val=statService.getFlag();
-		if(val==false)
-			return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.NOT_IMPLEMENTED);
-		else
+		if(map!=null)
+			//return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.NOT_IMPLEMENTED);
+		//else
 			return new ResponseEntity<Stats>(map,HttpStatus.OK);
 		}
 		
@@ -137,14 +137,14 @@ public class Controller {
 				
 				map=statService.calculStat(filtrati, field, filter);
 				val=statService.getFlag();
-				if(val==false)
-					return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.NOT_IMPLEMENTED);
-				else
+				if(map!=null)
+					//return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.BAD_REQUEST);
+				//else
 					return new ResponseEntity<Stats>(map,HttpStatus.OK);
 
 		
 	     }
-	     return new ResponseEntity<String>("Selezione dati vuota", HttpStatus.NOT_FOUND);
+	     return new ResponseEntity<String>("Field immesso inesistente", HttpStatus.BAD_REQUEST);
 	}
 }
 	

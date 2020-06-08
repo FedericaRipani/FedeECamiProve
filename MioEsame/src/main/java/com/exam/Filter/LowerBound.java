@@ -12,6 +12,13 @@ import java.util.ArrayList;
 
 import com.exam.Interface.AbstractFilter;
 import com.exam.model.Tweet;
+/**
+ * Classe che implementa il filtro "Essere inferiori di un certo valore" 
+ * @param fields campo a cui si vuole applicare il filtro (TextPost o numPost)
+ * @param upper  valore massimo di riferimento.
+ * 
+ * @author Federica Ripani
+ */
 
 public class LowerBound extends AbstractFilter {
 	

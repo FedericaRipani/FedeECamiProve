@@ -11,13 +11,10 @@ import com.exam.model.Tweet;
 public class StringStat {
 	
 	private Stats T;
-
-	
-	public StringStat() {
-	}
 	
 
-	public StringStat(ArrayList<Tweet> vett, String field) throws JSONException {
+	public StringStat(ArrayList<Tweet> vett, String field) throws JSONException
+	{
 		
 		super();
 		Map<String, Object> map = new HashMap<String, Object>();

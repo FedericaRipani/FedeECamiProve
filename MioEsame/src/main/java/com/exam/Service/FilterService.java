@@ -1,11 +1,11 @@
 package com.exam.Service;
 
 /**
- *  Classe che, in base al JSONObject filtro passato dal'utente, 
- *  sceglie quale filtro applicare e ritorna l'array filtrato.
+ *  Service dedicato al calcolo dell'array filtrato
+ *  che in base al JSONObject filtro passato dall'utente,   
+ *  sceglie quale filtro applicare.
  * 
  * @author Camilla D'Andrea
- * @author Federica Ripani
  */
 
 import com.exam.Filter.*;
