@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 import com.exam.model.Tweet;
 /** 
- * Classe astratta creata per includere il metodo che poi
- * ogni particolare statistica andrà ad implementare con il suo
- * funzionamento 
+ * Classe astratta creata per includere il metodo che
+ * successivamente verrà implementato con il suo funzionamento
+ * da ogni statistica 
  * 
- * @author Camilla D'Andrea
+ * @author Federica Ripani
  *
  */
 public abstract class AbstactStatistic {

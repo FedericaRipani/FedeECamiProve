@@ -6,19 +6,18 @@ import com.exam.Interface.AbstactStatistic;
 import com.exam.Service.StatsService;
 import com.exam.model.Tweet;
 
-public class Sum extends AbstactStatistic {
-	
-	public Sum() {
-		
-	}
-	
 	/**
 	 * Calcola la somma di una collezione di interi
 	 * 
-	 * @param vett  collezione di concessione
-	 * @param field attributo su cui calcolare la statistica
-	 * @return somma (int)
+	 * @param vett = ArrayList da esaminare
+	 * @param field = campo dell'ArrayList sul quale effettuare le statistiche
+	 * @return sum = valore della statistiche calcolato come int
+	 * 
+	 * @author Camilla D'Andrea
 	 */
+public class Sum extends AbstactStatistic {
+
+	
 	public double calcola(ArrayList<Tweet> vett, String field) {
 		int somma = 0;
 		ArrayList<Integer> temp = new StatsService().convInt(vett, field);

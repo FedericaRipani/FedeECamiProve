@@ -57,6 +57,7 @@ public class Controller {
 	/**
 	 * Gestisce la chiamata che fa visualizzare i metadati
 	 * con un codice HTTP 200
+	 * 
 	 * @return la collezione di metadati
 	 */
 	
@@ -69,6 +70,7 @@ public class Controller {
 	/**
 	 * Gestisce la chiamata che fa visualizzare i tweet
 	 * con un codice HTTP 200
+	 * 
 	 * @return la collezione di tweet
 	 */
 	
@@ -80,13 +82,16 @@ public class Controller {
 	}
 	
 	/**
+	 * Gestisce la chiamata al server che permette di filtrare
+	 * l'ArrayList di partenza invocando la classe FilterService
+	 * 
 	 * @param filter, è il filtro inserito in formato Json nella query string
 	 * @return L'Array filtrato in base alle richieste con codice HTTP 200
 	 * altrimenti codice HTTP 204 se la query è stata eseguita con successo 
 	 * ma non ha prodotto risultati
-	 * altrimenti codice HTTP 501 se la query non è stata possibile eseguirla
-	 * per adesempio una mal-implementazione
-	 * @throws JSONException 
+	 * altrimenti codice HTTP 400 se la query non è stata possibile eseguirla
+	 * ad esempio per una richiesta mal posta dal client
+	 * @throws JSONException  
 	 */
 	
 	@SuppressWarnings("rawtypes")
@@ -97,7 +102,7 @@ public class Controller {
 		val= filterService.getFlag();
 		
 		if(val==false)
-			return new ResponseEntity<String>("Nessun filtro selezionata/esistente", HttpStatus.NOT_IMPLEMENTED);
+			return new ResponseEntity<String>("Nessun filtro selezionata/esistente", HttpStatus.BAD_REQUEST);
 		
 		if (vett.size() == 0)
 			return new ResponseEntity<String>("La ricerca non ha prodotto risultati", HttpStatus.NO_CONTENT);
@@ -107,11 +112,17 @@ public class Controller {
 	}
 	
 	/**
+	 * Gestisce la chiamata al server che permette di effettuare
+	 * statistiche su array filtrato o non
+	 * invocando la classe StatisticService
 	 * 
-	 * 
-	 * @param field
-	 * @param filter
-	 * @return
+	 * @param field = campo sul quale effettuare la statistica
+	 * @param filter = potenziale filtro da applicare 
+	 * 				prima che si effettui la statistica
+	 * @return Le statistiche del field con codice HTTP 200 se viene prodotto risultato,
+	 * 	o HTTP 404 se la selezione dei dati provenienti dall'eventuale filtraggio
+	 * non è idonea,
+	 * 	o HTTP 400 se la richiesta presenta errori di sintassi
 	 * @throws JSONException
 	 */
 	@SuppressWarnings("rawtypes")
@@ -121,10 +132,7 @@ public class Controller {
 		
 		if (filter.isEmpty()) {
 		map=statService.calculStat(database, field, filter);
-		//val=statService.getFlag();
 		if(map!=null)
-			//return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.NOT_IMPLEMENTED);
-		//else
 			return new ResponseEntity<Stats>(map,HttpStatus.OK);
 		}
 		
@@ -136,10 +144,7 @@ public class Controller {
 				ArrayList<Tweet> filtrati = (ArrayList<Tweet>)filters(filter).getBody();
 				
 				map=statService.calculStat(filtrati, field, filter);
-				//val=statService.getFlag();
 				if(map!=null)
-					//return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.BAD_REQUEST);
-				//else
 					return new ResponseEntity<Stats>(map,HttpStatus.OK);
 
 		

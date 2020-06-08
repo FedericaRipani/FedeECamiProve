@@ -3,10 +3,11 @@ package com.exam.Filter;
 import java.util.ArrayList;
 
 /**
- * Classe che implementa il filtro "Cerca i tweets con una determinata parola nel testo, nome Utente o hashtag"
+ * Classe che implementa il filtro "Cerca i tweets con una
+ *  determinata parola nel testo, nome Utente o hashtag"
  * 
  * @param fields = campo a cui si vuole applicare il filtro (TextPost, NameUser o Hashtag)
- * @param value = Parola da cercare.
+ * @param value = parola da cercare.
  * 
  * @author Federica Ripani
  */

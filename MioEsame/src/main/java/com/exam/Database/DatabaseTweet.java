@@ -10,7 +10,8 @@ import com.exam.model.*;
 import com.exam.Service.*;
 
 /**
- * Definisce un array list di Tweet
+ * Definisce un ArrayList di Tweet contenente i campi più significativi
+ * 
  * @return ArrayList di oggetti di tipo Tweet
  * 
  * @author Federica Ripani
@@ -36,10 +37,6 @@ public class DatabaseTweet{
 			 JSONArray jsonHashtags = new JSONArray (jsonEnt.get("hashtags").toString());
 			 JSONObject language = JsonArray.getJSONObject(i).getJSONObject("metadata");
 			 
-			 //String Hashtag = TextHashtag(jsonHashtags);
-			// String Mention = Mentions(jsonUsMent);
-			 
-			 /*  SOSTITUISCE LA FUNZIONE DI SOTTO */
 			 String[] mentions = new String[jsonUsMent.length()];
 			 
 			 for(int j = 0; j < mentions.length; j++) {
@@ -70,26 +67,5 @@ public class DatabaseTweet{
 		return tweets;
 	}
 	
-	
-	/*
-	public String TextHashtag(JSONArray arrayH) {
-		String HashtagText = null;
-		int lengthH = arrayH.length();
-		for(int k=0; k<lengthH; k++) 
-			HashtagText = arrayH.getJSONObject(k).get("text").toString();
-		
-		return HashtagText;		
-	}
-	
-	public String Mentions(JSONArray arrayM) {
-		String name=null;
-		int lengthM = arrayM.length();
-		for(int j=0; j<lengthM; j++) 
-			name = arrayM.getJSONObject(j).get("screen_name").toString();
-		
-		return name;		
-	}
-	
-	*/
 	
 }

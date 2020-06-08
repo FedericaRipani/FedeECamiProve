@@ -3,7 +3,7 @@ package com.exam.Service;
 /**
  *  Service dedicato al calcolo dell'array filtrato
  *  che in base al JSONObject filtro passato dall'utente,   
- *  sceglie quale filtro applicare.
+ *  sceglie ed applica il filtro selezionato.
  * 
  * @author Camilla D'Andrea
  */
@@ -17,21 +17,17 @@ import org.json.JSONObject;
 
 public class FilterService {
 
-	public ArrayList<Tweet> vett;
-	public JSONObject filtro;
-	public ArrayList<Tweet> twits;
-	public Boolean flag;
+	private ArrayList<Tweet> vett;
+	private Boolean flag;
 
 	@SuppressWarnings("deprecation")
 	public FilterService() {
-
 		flag = new Boolean(false);
-		twits = new ArrayList<Tweet>();
 	}
 	
 	
 	public ArrayList<Tweet> filters(ArrayList<Tweet> twits, JSONObject filtro) throws JSONException {
-		
+		flag=false;
 		switch (filtro.getString("type")) {
 
 		case "UpperBound": {
@@ -82,8 +78,10 @@ public class FilterService {
 			flag = true;
 			break;
 		}
-
+		
 		}
+		//if(!(filtro.getString("fields")).equals("TextPost" && ""))
+			//flag=false;
 		return vett;
 	}
 
@@ -94,4 +92,15 @@ public class FilterService {
 	public void setFlag(Boolean flag) {
 		this.flag = flag;
 	}
+
+
+	public ArrayList<Tweet> getVett() {
+		return vett;
+	}
+
+
+	public void setVett(ArrayList<Tweet> vett) {
+		this.vett = vett;
+	}
+	
 }

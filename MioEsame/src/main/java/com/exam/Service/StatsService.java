@@ -7,7 +7,6 @@ import java.util.*;
  * richiamato nel controller
  * 
  * @author Federica Ripani
- * 
  */
 
 
@@ -17,26 +16,13 @@ import com.exam.model.Tweet;
 
 public class StatsService {
 	
-    public String field;
-    public String filter;
-    public ArrayList<Tweet> database;
-    //public Boolean flag;
-	
-	
-	//@SuppressWarnings("deprecation")
-	public StatsService() {
-		
-		//flag = new Boolean(false);
-		database = new ArrayList<Tweet>();
-		
-	}
 	
 	/**
-	 * Crea una collezione di attributi della concessione in base al field
+	 * Crea una collezione di attributi dei tweet in base al field
 	 * 
-	 * @param vett  collezione di dati da esaminare
-	 * @param field attributo desiderato
-	 * @return collezione di interi
+	 * @param vett = ArrayList da esaminare
+	 * @param field = campo dell'ArrayList sul quale effettuare le statistiche
+	 * @return collezione di interi 
 	 */
 	public  ArrayList<Integer> convInt(ArrayList<Tweet> vett, String field) {
 		 ArrayList<Integer> ids = new ArrayList<Integer>();
@@ -60,11 +46,11 @@ public class StatsService {
 	}
 	
 	/**
-	 * Crea una collezione di attributi della concessione in base al field
+	 * Crea una collezione di attributi dei tweet in base al field
 	 * 
-	 * @param vett  collezione di dati da esaminare
-	 * @param field attributo desiderato
-	 * @return collezione di stringhe
+	 * @param vett = ArrayList da esaminare
+	 * @param field = campo dell'ArrayList sul quale effettuare le statistiche
+	 * @return collezione di string
 	 */
 	public ArrayList<String> convStr(ArrayList<Tweet> vett, String field) {
 		ArrayList<String> ids = new ArrayList<String>();
@@ -96,14 +82,21 @@ public class StatsService {
 		return ids;
 	}
 	
+	/**
+	 * Metodo che sceglie se creare un StringStat o IntegerStat 
+	 * in base al field passato dall'utente
+	 * @param database = ArrayList sul quale effettuare le statistiche
+	 * @param field = campo dell'ArrayList sul quale effettuare le statistiche
+	 * @param filter = eventuale filtro desiderato
+	 * @return le statistiche effettuata
+	 */
+	
 	public Stats calculStat(ArrayList<Tweet> database,String field, String filter){
 			
 			
 			/* stats per i campi di tipo stringa */
 			if (Arrays.asList("data", "textPost", "nameUser", "languagePost").contains(field)) {
-				
 				StringStat stat = new StringStat(database, field);
-				//flag=true;
 				return stat.getStat();
 
 			}
@@ -111,7 +104,6 @@ public class StatsService {
 			/* stats per i campi di tipo numerico */
 			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
 				IntegerStat stat = new IntegerStat(database, field);
-				//flag=true;
 				return stat.getStat();
 				}
 			
@@ -119,9 +111,7 @@ public class StatsService {
 			
 		
 		}
-	/*public Boolean getFlag() {
-		return flag;
-	}	*/
+	
 	
 	
 }

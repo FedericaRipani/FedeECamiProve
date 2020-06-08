@@ -6,18 +6,18 @@ import com.exam.Interface.AbstactStatistic;
 import com.exam.Service.StatsService;
 import com.exam.model.*;
 
-public class Min extends AbstactStatistic {
-	
-	public Min() {
-		
-	}
-	/**
+/**
 	 * Calcola il minimo di una collezione di interi
 	 * 
-	 * @param vett  collezione di concessione
-	 * @param field attributo su cui calcolare la statistica
-	 * @return minimo (int)
+	 * @param vett = ArrayList da esaminare
+	 * @param field = campo dell'ArrayList sul quale effettuare le statistiche
+	 * @return minimo = valore della statistiche calcolato come int
+	 * 
+	 * @author Federica Ripani
 	 */
+public class Min extends AbstactStatistic {
+	
+	
 	public double calcola(ArrayList<Tweet> vett, String field) {
 		ArrayList<Integer> temp = new StatsService().convInt(vett, field);
 

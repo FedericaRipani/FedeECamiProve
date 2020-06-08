@@ -13,7 +13,7 @@ import com.exam.model.Tweet;
  * I filtri dovranno di conseguenza implementare i metodi approved
  * e apply.
  *
- *@author Federica Ripani
+ *@author Camilla D'Andrea
  */
 
 public abstract class AbstractFilter {

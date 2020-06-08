@@ -18,9 +18,6 @@ import java.nio.charset.Charset;
 
 public class Downloader {
 	
-     public Downloader() {
-    	 
-     }
      
 	 public JSONArray DownloaderJson() throws IOException {
 			
@@ -30,12 +27,6 @@ public class Downloader {
 	
 		JSONArray array = new JSONArray(json_ob.get("statuses").toString());
 		
-		/*for(int i = 0; i < array.length(); i++) {
-			System.out.println((i+1) + ") " + 
-				    array.getJSONObject(i).getInt("id") +
-				    array.getJSONObject(i).getString("created_at") +
-				    array.getJSONObject(i).getString("text"));
-		}*/
 		return array;
 	
 	}

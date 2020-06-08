@@ -3,16 +3,23 @@ package com.exam.Statistic;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.json.JSONException;
 
 import com.exam.Service.StatsService;
 import com.exam.model.Tweet;
 
+/**
+ * Trova le occorrenze di ogni elemento su una collezione di stringhe
+ * 
+ * @param vett = ArrayList da esaminare
+ * @param field = campo dell'ArrayList sul quale effettuare le statistiche
+ * @return map = mappa(campo-valore) contente le occorrenze
+ * 
+ * @author Federica Ripani
+ *
+ */
+
 public class Occurence {
-	public Occurence() {
-		
-	}
 	
 	public Map<String, Object> occorrence(ArrayList<Tweet> vett, String field) throws JSONException {
 

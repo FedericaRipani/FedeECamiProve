@@ -1,8 +1,10 @@
 package com.exam.Filter;
 
 import java.util.ArrayList;
+import com.exam.Interface.AbstractFilter;
+import com.exam.model.Tweet;
 /**
- * Classe che imp0lementa il filtro "Essere minore di un certo valore"
+ * Classe che implementa il filtro "Essere minore di un certo valore"
  * 
  * @param fields = Campo a cui si vuole applicare il filtro (TextPost o numPost)
  * @param uppers = Valore di riferimento.
@@ -10,20 +12,10 @@ import java.util.ArrayList;
  * @author Federica Ripani
  */
 
-import com.exam.Interface.AbstractFilter;
-import com.exam.model.Tweet;
-/**
- * Classe che implementa il filtro "Essere inferiori di un certo valore" 
- * @param fields campo a cui si vuole applicare il filtro (TextPost o numPost)
- * @param upper  valore massimo di riferimento.
- * 
- * @author Federica Ripani
- */
-
 public class LowerBound extends AbstractFilter {
 	
 	
-private int upper;
+	private int upper;
 	
 	public LowerBound(String fields, int uppers) {
 		super(fields);

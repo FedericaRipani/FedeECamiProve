@@ -1,25 +1,22 @@
 package com.exam.Statistic;
 
 import java.util.ArrayList;
-
 import com.exam.Interface.*;
 import com.exam.model.Tweet;
 import com.exam.Service.*;
 
-public class Max  extends AbstactStatistic {
-	
-	public Max() {
-		
-	}
-	
-	/**
+/**
 	 * Calcola il massimo di una collezione di interi
 	 * 
-	 * @param vett  collezione di concessione
-	 * @param field attributo su cui calcolare la statistica
-	 * @return massimo (int)
-	 */
-	
+	 * @param vett = ArrayList da esaminare
+	 * @param field = campo dell'ArrayList sul quale effettuare le statistiche
+	 * @return massimo = valore della statistiche calcolato come int
+	 * 
+	 * @author Camilla D'Andrea
+*/
+public class Max  extends AbstactStatistic {
+
+	@Override
 	public double calcola(ArrayList<Tweet> vett, String field) {
 		ArrayList<Integer> temp = new StatsService().convInt(vett, field);
 
