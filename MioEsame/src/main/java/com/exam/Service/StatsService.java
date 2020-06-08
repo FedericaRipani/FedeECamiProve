@@ -20,13 +20,13 @@ public class StatsService {
     public String field;
     public String filter;
     public ArrayList<Tweet> database;
-    public Boolean flag;
+    //public Boolean flag;
 	
 	
-	@SuppressWarnings("deprecation")
+	//@SuppressWarnings("deprecation")
 	public StatsService() {
 		
-		flag = new Boolean(false);
+		//flag = new Boolean(false);
 		database = new ArrayList<Tweet>();
 		
 	}
@@ -119,9 +119,9 @@ public class StatsService {
 			
 		
 		}
-	public Boolean getFlag() {
+	/*public Boolean getFlag() {
 		return flag;
-	}	
+	}	*/
 	
 	
 }

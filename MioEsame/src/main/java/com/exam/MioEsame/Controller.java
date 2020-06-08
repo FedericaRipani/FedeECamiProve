@@ -121,7 +121,7 @@ public class Controller {
 		
 		if (filter.isEmpty()) {
 		map=statService.calculStat(database, field, filter);
-		val=statService.getFlag();
+		//val=statService.getFlag();
 		if(map!=null)
 			//return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.NOT_IMPLEMENTED);
 		//else
@@ -136,7 +136,7 @@ public class Controller {
 				ArrayList<Tweet> filtrati = (ArrayList<Tweet>)filters(filter).getBody();
 				
 				map=statService.calculStat(filtrati, field, filter);
-				val=statService.getFlag();
+				//val=statService.getFlag();
 				if(map!=null)
 					//return new ResponseEntity<String>("Nessuna statistica selezionata/esistente", HttpStatus.BAD_REQUEST);
 				//else
