@@ -1,8 +1,9 @@
 package com.exam.Service;
 
 import java.util.*;
-
-
+import com.exam.MioEsame.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 
 import com.exam.Statistic.*;
@@ -113,7 +114,37 @@ public class StatsService {
 				return stat.getStat();
 				}
 			}
-			return null;
+			//return null;
+			
+			else if (!filter.isEmpty()) {
+			
+			//if(filters(filter).getStatusCode() != HttpStatus.OK) return new ResponseEntity<String>("Selezione dati per statistiche vuota", HttpStatus.NOT_FOUND);
+
+			/*
+			 * se il campo immesso è giusto e il filtro produrrà una risposta giusta (cioè
+			 * esiste) calcoliamo le stats*/
+			 
+			if (Arrays.asList("data", "textPost", "nameUser", "languagePost").contains(field)) {
+
+				@SuppressWarnings("unchecked")
+				ArrayList<Tweet> filtrati = (ArrayList<Tweet>)filters(filter).getBody();
+				StringStat stat = new StringStat(filtrati, field);
+				return stat.getStat();
+			}
+
+			/*
+			 * se il campo immesso è giusto e il filtro produrrà una risposta giusta (cioè
+			 * esiste) calcoliamo le stats*/
+			 
+			if (Arrays.asList("idPost", "idUser", "numPost").contains(field)) {
+
+				@SuppressWarnings("unchecked")
+				ArrayList<Tweet> filtrati = (ArrayList<Tweet>)filters(filter).getBody();
+				IntegerStat stat = new IntegerStat(filtrati, field);
+				return stat.getStat();
+			}
+		}
+		
 		}
 	public Boolean getFlag() {
 		return flag;
