@@ -3,7 +3,7 @@
 ## Introduzione al Progetto
 
 Di seguito verrà spiegato il funzionamento e la composizione del progetto d'esame denominato "OOP-Project-TwitterTimeline" svolto nel corso di "Programmazione ad Oggetti" A.A.2019/2020.
-Il programma ha come obbiettivo l'analisi della Timeline di Twitter relativa ai post inerenti il terremoto, questa timeline è estrapolata da un URL, dal quale si prenderanno i dati più caratteristici di ogni tweet, sul quale poi l'utente tramite apposite richieste potrà effettuare filtri e statistiche.
+Il programma ha come obiettivo l'analisi della Timeline di Twitter relativa ai post inerenti il terremoto. Questa timeline è estrapolata da un URL e sono stati presi in considerazione solo i dati più caratteristici di ogni tweet. L'utente, tramite apposite richieste, potrà effettuare filtri e statistiche, le statistiche possono essere effettuate sia sull'intera collezione di dati che su una sua parte applicando prima un filtraggio.
 
 (Spiegare come avviene il download PUNTO DI FORZA PERCHè DIVERSO)
 
@@ -11,7 +11,7 @@ Il programma ha come obbiettivo l'analisi della Timeline di Twitter relativa ai 
 
 Per il corretto funzionamento è necessario istallare l'IDE [Eclipse](https://www.eclipse.org/downloads/) con plugin "<u>Spring Tools</u>".
 
-Successivamente, una volta aperto l'ambiente di sviluppo:
+Successivamente, una volta aperto l'ambiente di sviluppo, bisognerà effetttuare i seguenti passaggi:
 
 - Tasto destro nel Package Explorer, e cliccare "Import", poi "Project from GIT (with Smart Import)"
 
