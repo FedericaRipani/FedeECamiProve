@@ -22,6 +22,7 @@ public class IntegerStat extends Stats{
 	private double min;
 	private double max;
 	private double avg;
+	private double std;
 	
 	
 		public IntegerStat(ArrayList<Tweet> vett, String field) throws JSONException {
@@ -32,6 +33,7 @@ public class IntegerStat extends Stats{
 			map.put("Minimo", min = new Min().calcola(vett, field));
 			map.put("Massimo", max = new Max().calcola(vett, field));
 			map.put("Media", avg = new Average().calcola(vett, field));
+			map.put("Deviazione standard", std = new Std().calcola(vett, field));
 			
 			T = new Stats(map);
 		}
