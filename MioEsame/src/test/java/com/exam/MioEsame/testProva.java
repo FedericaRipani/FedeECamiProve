@@ -3,30 +3,38 @@ package com.exam.MioEsame;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-import com.exam.Service.*;
 import com.exam.Statistic.*;
 import com.exam.model.*;
 
 class testProva {
 	
-	Tweet t1;
-	Tweet t2;
-	ArrayList<Tweet> array;
-	double max;
+	Tweet t1;Tweet t2;Tweet t3;Tweet t4;
+	ArrayList<Tweet> array= new ArrayList<Tweet>();;
+	double max;double min;double avg;double std;double sum;
+	Map<String, Object> map = new HashMap<String, Object>();
+
 	@BeforeEach
 	void setUp() throws Exception {
-	Tweet t1 = new Tweet("11Sett", 012345,"Ciao" , 110999, "Cami", 110999, "it", null,null) ;
-	Tweet t2 = new Tweet("23Mag", 543210,"Giulianova è top" , 230599, "Fede", 230599, "it", null,null) ;
-	array= new ArrayList<Tweet>();
-	array.add(t1);
-	array.add(t2);
+	Tweet t1 = new Tweet("11Sett",1 ,"Amo le camminate in montagna" , 1087888, "Camilla", 110, "it", null,null) ;
+	Tweet t2 = new Tweet("23Mag", 2,"Giulianova è top" , 1087930, "Federica", 230, "it", null,null) ;
+	Tweet t3 = new Tweet("20Nov",3 , "Il terremoto mi ha segnato", 258024, "Fabio", 599, "it", null, null);
+	Tweet t4 = new Tweet("11Nov", 4, "Quest anno non si va al mare :(", 1067456, "Filippo", 3, "it", null, null);
+	array.add(t1);array.add(t2);array.add(t3);array.add(t4);
+	
 	max = new Max().calcola(array, "numPost");
+	sum= new Sum().calcola(array,"idPost");
+	min = new Min().calcola(array, "numPost");
+	avg = new Average().calcola(array,"idPost");
+	std = new Std().calcola(array, "numPost");
+	map = new Occurence().occorrence(array, "nameUser");
+	
 	
 	
 	
@@ -37,8 +45,12 @@ class testProva {
 
 	@Test
 	void test() {
-		assertEquals(230599,max);
-		
+		assertEquals(599,max);
+		assertEquals(10,sum);
+		assertEquals(3,min);
+		assertEquals(2.5,avg);
+		assertEquals(224.70480635714048,std);
+		assertEquals("ciccio",map);
 	}
 
 }
