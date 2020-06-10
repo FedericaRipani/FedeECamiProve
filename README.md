@@ -74,6 +74,13 @@ Al fine di rendere il progetto di maggior comprensione ai fini di un utente fina
 Il client invia la richiesta al server, quindi attende la risposta (response). L'obiettivo del server è quindi di interpretare la richiesta del client e restituire una risposta correlata da un codice ben visibile sull' applicazione di testing [Postman](https://www.postman.com/).
 
 I codici attribuibili nell'applicazione sono i seguenti:
+|   Codice Riposta    |           Chiamate possibili            |                         Significato                          |
+| :-----------------: | :-------------------------------------: | :----------------------------------------------------------: |
+|     `200 - OK`      | `getMeta, getTweets,  filtering, stats` | L'operazione è andata a buon fine, il risultato prodotto è quello aspettato. |
+| `400 - BAD REQUEST` |           `filtering, stats`            | Il filtro o il field immesso non è stato implementato oppure è incorretto. |
+|  204 - NO CONTENT`  |               `filtering                | L'operazione è andata a buon fine ma non ha prodotto risultato, la selezione è vuota |
+
+
 
 
 Mettere solo package con all'interno le classi.
