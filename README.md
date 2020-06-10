@@ -144,7 +144,7 @@ I codici attribuibili nell'applicazione sono i seguenti:
 
 Il progetto è strutturato con vari package rispettando il pattern architetturale MVC come di seguito dimostrato:
 
-
+<img src="https://github.com/FedericaRipani/FedeECamiProve/blob/master/IMAGES/Package.svg" style="zoom: 5%;" style="align: center;"/>
 
 ## Autori
 
