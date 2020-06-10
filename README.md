@@ -65,7 +65,8 @@ Il campo può riferirsi a tutta la Timeline di Tweet o ad una scala ridotta, qui
 
 (inserire tabella stats)
 
-## Esempio di risposta alla chiamata  http://localhost:8080/stats?field=numPost&filter={"type":"UpperBound","fields":"TextPost","lower":100}.
+##### ! TUTTI I DATI RESTITUITI SONO IN FORMATO JSON !
+##### Esempio di risposta alla chiamata  http://localhost:8080/stats?field=numPost&filter={"type":"UpperBound","fields":"TextPost","lower":100}.
 ```
 {
 
@@ -84,6 +85,24 @@ Il campo può riferirsi a tutta la Timeline di Tweet o ad una scala ridotta, qui
 ​    "Sommatoria": 2072.0
 
   }
+
+}
+```
+
+##### Esempio di risposta parziale alla chiamata   http://localhost:8080/getMeta
+```
+{
+
+ {
+        "name": "data",
+        "sourceField": "Data di creazione del twitt",
+        "type": "String"
+    },
+    {
+        "name": "idPost",
+        "sourceField": "Descrive in modo univoco il post",
+        "type": "Integer"
+    },
 
 }
 ```
