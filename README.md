@@ -65,8 +65,28 @@ Il campo può riferirsi a tutta la Timeline di Tweet o ad una scala ridotta, qui
 
 (inserire tabella stats)
 
+## Esempio di risposta alla chiamata  http://localhost:8080/stats?field=numPost&filter={"type":"UpperBound","fields":"TextPost","lower":100}.
+```
+{
 
-Mettere qualche esempio di choiamata.
+  "m": {
+
+​    "Deviazione standard": 69.40997754134797,
+
+​    "Field": "numPost",
+
+​    "Massimo": 499.0,
+
+​    "Media": 26.90909090909091,
+
+​    "Minimo": 0.0,
+
+​    "Sommatoria": 2072.0
+
+  }
+
+}
+```
 #### HTTP-response
 
 Al fine di rendere il progetto di maggior comprensione all'utente finale,  non sono state create eccezioni personalizzate, se non oltre a quelle già definite nelle apposite librerie bensì sono stati utilizzati dei codici HTTP- response.
@@ -91,9 +111,11 @@ e dire che si rimanda alla cartella uml per diagrammi piu specifici.
 ### Autori
 
 [**Federica Ripani**](https://twitter.com/RipaniFederica) - S1086993
+
 [**Camilla D'Andrea**](https://twitter.com/CamillaDAndrea2) - S1087888
 
 Studentesse del 2° anno di Ing. Informatica e dell'Automazione presso l'UNIVPM.
+
 Il link rimanda al profilo Twitter creato in occasione dello sviluppo del progetto.
 
 
