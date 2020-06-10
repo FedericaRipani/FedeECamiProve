@@ -22,7 +22,7 @@ Successivamente, una volta aperto l'ambiente di sviluppo, bisognerà effetttuare
   
 ### **Download**
 
-Nem momento in cui si clicca su "Run as" -> "Spring Boot Application", automaticamente si effettua il download dei Tweet ed i relativi dati.
+Nel momento in cui si clicca su "Run as" -> "Spring Boot Application", automaticamente si effettua il download dei Tweet ed i relativi dati. Si creerà un JSONArray formo da tutti i Tweet ed i suoi campi all'interno.
 
 
 ### **Funzionamento**
