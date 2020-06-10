@@ -30,7 +30,7 @@ Tramite il Diagramma dei casi d'uso riportato di seguito viene spiegato quali so
 
 #### Come effettuare le richieste
 
-E' possibile effettuare le seguenti chiamate sia installando un API Testing (ad esempio Postman) che tramite richiesta all' [URL](http://localhost:8080/) http://localhost:8080/.
+E' possibile effettuare le seguenti chiamate sia installando un API Testing (ad esempio Postman) che tramite richiesta all' URL http://localhost:8080/.
 
 | DESTINAZIONI                                                 | DESCRIZIONE                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
