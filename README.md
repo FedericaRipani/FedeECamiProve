@@ -78,7 +78,8 @@ I codici attribuibili nell'applicazione sono i seguenti:
 | :-----------------: | :-------------------------------------: | :----------------------------------------------------------: |
 |     `200 - OK`      | `getMeta, getTweets,  filtering, stats` | L'operazione è andata a buon fine, il risultato prodotto è quello aspettato. |
 | `400 - BAD REQUEST` |           `filtering, stats`            | Il filtro o il field immesso non è stato implementato oppure è incorretto. |
-|  204 - NO CONTENT`  |               `filtering                | L'operazione è andata a buon fine ma non ha prodotto risultato, la selezione è vuota |
+| `204 - NO CONTENT`  |               `filtering                | L'operazione è andata a buon fine ma non ha prodotto risultato, la selezione è vuota. |
+|  `404 - NOT FOUND`  |                  stats                  | Dopo aver richiesto le statistiche è stato immesso un filtro o un field incorretto. |
 
 
 
