@@ -39,10 +39,23 @@ E' possibile effettuare le seguenti chiamate sia installando un API Testing (ad 
 | `/filtering?filter={"type":"nome_filtro","fields":"campo_esaminato","parametro":valore}` | Visualizza la collezione di Tweet filtrata in base a parametri formato JSON |
 | `/stats?field=campo&<br/>filter{"type":"nome_filtro","fields":"campo_esaminato","parametro":valore}` | Visualizza le statistiche su un campo dei Tweet. Il dataset  di provenienza può essere intero o parziale, applicando prima un filtro |
 
+
+## Filtri 
 I filtri disponibili sono riportati nella seguente tabella:
+(bisogna invertire UpperBound e LowerBound e specificare che per il testo si considera la sua lunghezza)
+
+|        Filtro        |                         Descrizione                          |      Field applicabili       |              Esempio del filtro in formato JSON              |
+| :------------------: | :----------------------------------------------------------: | :--------------------------: | :----------------------------------------------------------: |
+|      UpperBound      | Cerca i valori del campo scelto (**field**) maggiori della soglia **lower**. |      TextPost e numPost      |     {"type":"UpperBound","field":"TextPost","lower":20}      |
+| UpperBound and equal | DescrizioneDescrizioneCerca i valori del campo scelto (**field**) maggiori o uguali della soglia **lower**. |      TextPost e numPost      |     {"type":"UpperBoundE","field":"TextPost","lower":20}     |
+|      LowerBound      | Cerca i valori del campo scelto inferiori della soglia **upper** nel campo **field**. |      TextPost e numPost      |     {"type":"LowerBound","field":"TextPost","upper":100}     |
+| LowerBound and equal | Cerca i valori del campo scelto (**field**) inferiori o uguali della soglia **upper**. |      TextPost e numPost      |    {"type":"LowerBoundE","field":"TextPost","upper":100}     |
+|       Included       | Cerca i valori del campo scelto (**fields**)nei valori compresi tra la soglia **lower** e **upper**. |      TextPost e numPost      | {"type":"Included","fields":"TextPost","upper":100,"lower":20} |
+|  Included and equal  | Cerca i valori del campo scelto (**fields**) nei valori compresi o uguali tra la soglia **lower** e **upper**. |      TextPost e numPost      | {"type":"IncludedE","fields":"supwater","upper":100,"lower":20} |
+|        Search        | Cerca le stringhe del campo scelto (**fields**) uguali ad una determinata parola (**value**) | TextPost, NameUser e Hashtag | {"type":"Search", "fields": "Hashtag","value"= "terremoto"}  |
 
 
-I filtri disponibili sono riportati nella seguente tabella:
+
 
 ....
 
