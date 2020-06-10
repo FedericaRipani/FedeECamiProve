@@ -9,10 +9,7 @@ import java.util.*;
  * @author Federica Ripani
  */
 
-
-import com.exam.Statistic.*;
-
-import com.exam.model.Tweet;
+import com.exam.model.*;
 
 public class StatsService {
 	

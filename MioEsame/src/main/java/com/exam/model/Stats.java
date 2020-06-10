@@ -1,4 +1,4 @@
-package com.exam.Statistic;
+package com.exam.model;
 /**
  * Classe padre che contiene una mappa,
  * le quali figlie andranno ad ereditare come nuovo tipo.

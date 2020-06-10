@@ -1,9 +1,11 @@
-package com.exam.Statistic;
+package com.exam.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
+
+import com.exam.Statistic.*;
 import com.exam.model.Tweet;
 
 /**
