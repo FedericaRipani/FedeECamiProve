@@ -54,13 +54,26 @@ Il campo può riferirsi a tutta la Timeline di Tweet o ad una scala ridotta, qui
 
 
 Mettere qualche esempio di choiamata.
-Parlare di http response con relativi codici
+#### HTTP-response
+
+Al fine di rendere il progetto di maggior comprensione ai fini di un utente finale,  non sono state create eccezioni personalizzate, se non oltre a quelle già definite nelle apposite librerie bensì sono stati utilizzati dei codici HTTP- response.
+
+Il client invia la richiesta al server, quindi attende la risposta (response). L'obiettivo del server è quindi di interpretare la richiesta del client e restituire una risposta correlata da un codice ben visibile sull' applicazione di testing [Postman](https://www.postman.com/).
+
+I codici attribuibili nell'applicazione sono i seguenti:
+
 
 Mettere solo package con all'interno le classi.
 
 e dire che si rimanda alla cartella uml per diagrammi piu specifici.
 
-Mettere gli autori con link profilo twitter
+### Autori
+
+[**Federica Ripani**](https://twitter.com/RipaniFederica) - S1086993
+[**Camilla D'Andrea**](https://twitter.com/CamillaDAndrea2) - S1087888
+
+Studentesse del 2° anno di Ing. Informatica e dell'Automazione presso l'UNIVPM.
+Il link rimanda al profilo Twitter creato in occasione dello sviluppo del progetto.
 
 
 
