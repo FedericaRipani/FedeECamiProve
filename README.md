@@ -123,9 +123,11 @@ I codici attribuibili nell'applicazione sono i seguenti:
 
 
 
-Mettere solo package con all'interno le classi.
+### **Struttura**
 
-e dire che si rimanda alla cartella uml per diagrammi piu specifici.
+Il progetto è strutturato con vari package rispettando il pattern architetturale MVC come di seguito dimostrato:
+
+
 
 ### Autori
 
