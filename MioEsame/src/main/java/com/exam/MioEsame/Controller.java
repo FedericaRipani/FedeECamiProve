@@ -49,9 +49,12 @@ public class Controller {
 		database = new DatabaseTweet().getAll();
 		statService= new StatsService();
 		
-		System.out.println("\n\n|--------------------|");
-		System.out.println("|  APPLICATION READY |");
-		System.out.println("|--------------------|\n\n");
+		System.out.println("\n\n ---------------------- ");
+		System.out.println("|**********************|");
+		System.out.println("|*  APPLICATION READY *|");
+		System.out.println("|**********************|");
+		System.out.println(" ----------------------\n\n");
+		
 	}
 	
 	/**
