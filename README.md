@@ -39,7 +39,7 @@ E' possibile effettuare le seguenti chiamate sia installando un API Testing (ad 
 | `/filtering?filter={"type":"nome_filtro","fields":"campo_esaminato","parametro":valore}` | Visualizza la collezione di Tweet filtrata in base a parametri formato JSON |
 | `/stats?field=campo&<br/>filter{"type":"nome_filtro","fields":"campo_esaminato","parametro":valore}` | Visualizza le statistiche su un campo dei Tweet. Il dataset  di provenienza può essere intero o parziale, applicando prima un filtro |
 
-
+---
 ## Filtri 
 I filtri disponibili sono riportati nella seguente tabella:
 (bisogna invertire UpperBound e LowerBound e specificare che per il testo si considera la sua lunghezza)
@@ -54,16 +54,23 @@ I filtri disponibili sono riportati nella seguente tabella:
 |  Included and equal  | Cerca i valori del campo scelto (**fields**) nei valori compresi o uguali tra la soglia **lower** e **upper**. |      TextPost e numPost      | {"type":"IncludedE","fields":"supwater","upper":100,"lower":20} |
 |        Search        | Cerca le stringhe del campo scelto (**fields**) uguali ad una determinata parola (**value**) | TextPost, NameUser e Hashtag | {"type":"Search", "fields": "Hashtag","value"= "terremoto"}  |
 
+---
 
 
+ ## Statistiche
 
-....
-
-Inoltre è possibile eseguire delle statistiche su un campo.
+E' possibile eseguire delle statistiche su un campo.
 
 Il campo può riferirsi a tutta la Timeline di Tweet o ad una scala ridotta, quindi applicando prima un filtro.
 
-(inserire tabella stats)
+|        Statistica         |                         Descrizione                          |            Field applicabili             |
+| :-----------------------: | :----------------------------------------------------------: | :--------------------------------------: |
+|       Minimo (Min)        | Dato il campo (**field**), calcola il minimo valore in quel campo |         idPost, idUser e numPost         |
+|       Massimo (Max)       | Dato il campo (**field**), calcola il massimo valore in quel campo |         idPost, idUser e numPost         |
+|        Media (Avg)        | Dato il campo (**field**), calcola la media dei valori di quel campo |         idPost, idUser e numPost         |
+|        Somma (Sum)        | Dato il campo (**field**), calcola la somma di tutti i valori di quel campo |         idPost, idUser e numPost         |
+| Deviazione Standard (Std) |                         Da vedere!!!                         |         idPost, idUser e numPost         |
+| Occorrrenze (Occurrence)  |      Dato il campo (**field**),  calcola le occorrenze       | data, textPost, nameUser e  languagePost |
 
 ##### ! TUTTI I DATI RESTITUITI SONO IN FORMATO JSON !
 ##### Esempio di risposta alla chiamata  http://localhost:8080/stats?field=numPost&filter={"type":"UpperBound","fields":"TextPost","lower":100}.
