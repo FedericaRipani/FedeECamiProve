@@ -1,11 +1,13 @@
-cr
 
 ## Introduzione al Progetto
 
 Di seguito verrà spiegato il funzionamento e la composizione del progetto d'esame denominato "OOP-Project-TwitterTimeline" svolto nel corso di "Programmazione ad Oggetti" A.A.2019/2020.
 Il programma ha come obiettivo l'analisi della Timeline di Twitter relativa ai post inerenti il terremoto. Questa timeline è estrapolata da un URL e sono stati presi in considerazione solo i dati più caratteristici di ogni tweet. L'utente, tramite apposite richieste, potrà effettuare filtri e statistiche, le statistiche possono essere effettuate sia sull'intera collezione di dati che su una sua parte applicando prima un filtraggio.
+[Pre requisiti ed avvio del progetto](https://github.com/FedericaRipani/FedeECamiProve#pre-requisiti-ed-avvio-del-progetto)
+[Funzionamento del progetto](https://github.com/FedericaRipani/FedeECamiProve#funzionamento)
+[Struttura del progetto](https://github.com/FedericaRipani/FedeECamiProve#struttura)
 
-### **Pre requisiti ed avvio del progetto**
+## **Pre requisiti ed avvio del progetto**
 
 Per il corretto funzionamento è necessario istallare l'IDE [Eclipse](https://www.eclipse.org/downloads/) con plugin "<u>Spring Tools</u>".
 
@@ -25,7 +27,7 @@ Successivamente, una volta aperto l'ambiente di sviluppo, bisognerà effetttuare
 Nel momento in cui si clicca su "Run as" -> "Spring Boot Application", automaticamente si effettua il download dei Tweet ed i relativi dati. Si creerà un JSONArray formo da tutti i Tweet ed campi al loro interno.
 
 
-### **Funzionamento**
+## **Funzionamento**
 
 Tramite il Diagramma dei casi d'uso riportato di seguito viene spiegato quali sono le richieste  che il client può effettuare tramite API REST GET.
 
@@ -44,7 +46,7 @@ E' possibile effettuare le seguenti chiamate sia installando un API Testing (ad 
 | `/stats?field=campo&<br/>filter{"type":"nome_filtro","fields":"campo_esaminato","parametro":valore}` | Visualizza le statistiche su un campo dei Tweet. Il dataset  di provenienza può essere intero o parziale, applicando prima un filtro |
 
 ---
-## Filtri 
+#### Filtri 
 I filtri disponibili sono riportati nella seguente tabella:
 (bisogna invertire UpperBound e LowerBound e specificare che per il testo si considera la sua lunghezza)
 
@@ -61,7 +63,7 @@ I filtri disponibili sono riportati nella seguente tabella:
 ---
 
 
- ## Statistiche
+ #### Statistiche
 
 E' possibile eseguire delle statistiche su un campo.
 
@@ -134,13 +136,13 @@ I codici attribuibili nell'applicazione sono i seguenti:
 
 
 
-### **Struttura**
+## **Struttura**
 
 Il progetto è strutturato con vari package rispettando il pattern architetturale MVC come di seguito dimostrato:
 
 
 
-### Autori
+## Autori
 
 [**Federica Ripani**](https://twitter.com/RipaniFederica) - S1086993
 
