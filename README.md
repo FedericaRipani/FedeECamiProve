@@ -27,10 +27,19 @@ Tramite il Diagramma dei casi d'uso riportato di seguito viene spiegato quali so
 
 <img src="https://github.com/FedericaRipani/FedeECamiProve/blob/master/NewModel%20Use%20Case%20Diagram.jpg" style="zoom: 1%;" />
 
+
 #### Come effettuare le richieste
 
-(inserire tabella relativa alle richieste)
+Per effettuare le richieste si può 
 
+| DESTINAZIONI                                                 | DESCRIZIONE                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `/getTweets`                                                 | Visualizza tutti i Tweet (rappresentati dai parametri piu importanti) presenti nel Dataset |
+| `/getMeta`                                                   | Visualizza tutti gli alias utilizzati per la descrizione del tweet |
+| `/filtering?filter={"type":"nome_filtro","fields":"campo_esaminato","parametro":valore}` | Visualizza la collezione di Tweet filtrata in base a parametri formato JSON |
+| `/stats?field=campo&<br />filter{"type":"nome_filtro","fields":"campo_esaminato","parametro":valore}` | Visualizza le statistiche su un campo dei Tweet. Il dataset  di provenienza può essere intero o parziale, applicando prima un filtr |
+
+I filtri disponibili sono riportati nella seguente tabella:
 
 
 I filtri disponibili sono riportati nella seguente tabella:
