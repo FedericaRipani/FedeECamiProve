@@ -1,4 +1,4 @@
-[TOC]
+cr
 
 ## Introduzione al Progetto
 
@@ -43,6 +43,15 @@ Il campo può riferirsi a tutta la Timeline di Tweet o ad una scala ridotta, qui
 
 (inserire tabella stats)
 
+
+Mettere qualche esempio di choiamata.
+Parlare di http response con relativi codici
+
+Mettere solo package con all'interno le classi.
+
+e dire che si rimanda alla cartella uml per diagrammi piu specifici.
+
+Mettere gli autori con link profilo twitter
 
 
 
