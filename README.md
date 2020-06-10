@@ -25,7 +25,7 @@ Successivamente, una volta aperto l'ambiente di sviluppo, bisognerà effetttuare
 
 Tramite il Diagramma dei casi d'uso riportato di seguito viene spiegato quali sono le richieste  che il client può effettuare tramite API REST GET.
 
-<img src="https://github.com/FedericaRipani/FedeECamiProve/blob/master/NewModel%20Use%20Case%20Diagram.svg" style="zoom: 5%; align="middle" />
+<img src="https://github.com/FedericaRipani/FedeECamiProve/blob/master/NewModel%20Use%20Case%20Diagram.svg" style="zoom: 5%;" style="align: middle;"/>
 
 
 #### Come effettuare le richieste
