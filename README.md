@@ -66,6 +66,7 @@ I filtri disponibili sono riportati nella seguente tabella:
 I filtri di tipo numerico sono applicabili ai campi: TextPost e numPost. Per il TextPost si fa riferimento alla sua lunghezza.
 
 I filtri di tipo stringa sono applicabili ai campi: TextPost, NameUser e Hashtag.
+
 ---
 
 
@@ -73,7 +74,7 @@ I filtri di tipo stringa sono applicabili ai campi: TextPost, NameUser e Hashtag
 
 E' possibile eseguire delle statistiche su un campo.
 
-Il campo può riferirsi a tutta la Timeline di Tweet o ad una scala ridotta, quindi applicando prima un filtro.
+La statistica può riferirsi a tutta la Timeline di Tweet o ad una parte di essa, applicando prima un filtro.
 
 |        Statistica         |                         Descrizione                          |            Field applicabili             |
 | :-----------------------: | :----------------------------------------------------------: | :--------------------------------------: |
@@ -82,7 +83,7 @@ Il campo può riferirsi a tutta la Timeline di Tweet o ad una scala ridotta, qui
 |        Media (Avg)        | Dato il campo (**field**), calcola la media dei valori di quel campo |         idPost, idUser e numPost         |
 |        Somma (Sum)        | Dato il campo (**field**), calcola la somma di tutti i valori di quel campo |         idPost, idUser e numPost         |
 | Deviazione Standard (Std) |                         Da vedere!!!                         |         idPost, idUser e numPost         |
-| Occorrrenze (Occurrence)  |      Dato il campo (**field**),  calcola le occorrenze       | data, textPost, nameUser e  languagePost |
+| Occorrrenze (Occ)  |      Dato il campo (**field**),  calcola le occorrenze       | data, textPost, nameUser e  languagePost |
 
 ##### ! TUTTI I DATI RESTITUITI SONO IN FORMATO JSON !
 ##### Esempio di risposta alla chiamata  http://localhost:8080/stats?field=numPost&filter={"type":"UpperBound","fields":"TextPost","lower":100}.
