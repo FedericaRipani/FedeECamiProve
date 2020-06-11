@@ -26,7 +26,7 @@ import com.exam.model.*;
 class TestMetodsStats {
 	
 	Tweet t1;Tweet t2;Tweet t3;Tweet t4;
-	ArrayList<Tweet> array= new ArrayList<Tweet>();;
+	ArrayList<Tweet> array= new ArrayList<Tweet>();
 	double max;double min;double avg;double std;double sum;
 	Map<String, Object> map = new HashMap<String, Object>();
 
