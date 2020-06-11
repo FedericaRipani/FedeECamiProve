@@ -63,9 +63,9 @@ I filtri disponibili sono riportati nella seguente tabella:
 |  Included and equal  | Cerca i valori del campo scelto (**fields**) nei valori compresi o uguali tra la soglia **lower** e **upper**. |          Numerici          | {"type":"IncludedE","fields":"supwater","upper":100,"lower":20} |
 |        Search        | Cerca le stringhe del campo scelto (**fields**) uguali ad una determinata parola (**value**) |          Stringhe          | {"type":"Search", "fields": "Hashtag","value"= "terremoto"}  |
 
-I filtri di tipo numerico sono applicabili ai campi: TextPost e numPost. Per il TextPost si fa riferimento alla sua lunghezza.
+I filtri di tipo numerico sono applicabili ai campi: `TextPost` e `numPost`. In questo caso per il `TextPost` si fa riferimento alla sua lunghezza.
 
-I filtri di tipo stringa sono applicabili ai campi: TextPost, NameUser e Hashtag.
+I filtri di tipo stringa sono applicabili ai campi: `TextPost`, `NameUser` e `Hashtag`.
 
 ---
 
