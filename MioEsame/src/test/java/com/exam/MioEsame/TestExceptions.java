@@ -10,16 +10,25 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.skyscreamer.jsonassert.JSONAssert;
 
 import com.exam.Service.FilterService;
 import com.exam.model.Tweet;
 
+/**
+ * Classse di Test che verifica la corretta generazione di
+ * una JSONException nel metodo filters del FilterService.
+ * 
+
+ * @author Federica Ripani
+ *
+ */
+
+
+
+
 class TestExceptions {
 	private JSONObject filtro1;
-	private String filtro2;
 	private FilterService filter;
-	private JSONObject actual;
 	private Tweet t1;
 	private ArrayList<Tweet> array;
 
@@ -33,7 +42,7 @@ class TestExceptions {
 		filtro1.put("upper", 100);
 		array = new ArrayList<Tweet>();
 		array.add(t1);
-      
+	   
 	}
 
 	@AfterEach
@@ -42,8 +51,7 @@ class TestExceptions {
 
 	@Test
 	void test() throws JSONException {
-		JSONException exception = assertThrows(JSONException.class, () -> filter.filters(array, filtro1));
-
+		assertThrows(JSONException.class, () -> filter.filters(array, filtro1));
 	
 	
 	}
