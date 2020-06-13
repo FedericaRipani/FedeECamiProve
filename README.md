@@ -283,9 +283,10 @@ Successivamente alla fase di sviluppo del progetto sono stati creati dei test ap
 ## **JARs e linguaggio java**
 
 Sono stati utilizzati i seguenti JARs, definiti come dipendenze Maven nel [pom.xml](https://github.com/FedericaRipani/Progetto-Programmazione-ad-Oggetti/blob/master/OOP-Poject-TwitterTimeline/pom.xml) del progetto :
-- [Apache common I/O](https://mvnrepository.com/artifact/commons-io/commons-io).
+- [Apache common I/O](https://mvnrepository.com/artifact/commons-io/commons-io)
+- [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 - [JUnit Jupiter API](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api)
-- [Json](https://mvnrepository.com/artifact/org.json/json).
+- [Json](https://mvnrepository.com/artifact/org.json/json)
 
 Sono state implementate le seguenti strutture dati:
 - `ArrayList<>`
