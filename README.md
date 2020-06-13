@@ -15,7 +15,7 @@ Di seguito verranno illustrati il funzionamento e la struttura del progetto d'es
 
 [Test](https://github.com/FedericaRipani/Progetto-Programmazione-ad-Oggetti#test)
 
-[JARS e linguaggio Java](https://github.com/FedericaRipani/Progetto-Programmazione-ad-Oggetti#jars-e-linguaggio-java)
+[JARs e linguaggio Java](https://github.com/FedericaRipani/Progetto-Programmazione-ad-Oggetti#jars-e-linguaggio-java)
 
 [Autori](https://github.com/FedericaRipani/Progetto-Programmazione-ad-Oggetti#autori)
 
@@ -23,16 +23,15 @@ Di seguito verranno illustrati il funzionamento e la struttura del progetto d'es
 
 ## **Pre requisiti ed avvio del progetto**
 
+Il progetto è stato sviluppato utilizzando l'IDE [Eclipse](https://www.eclipse.org/downloads/) con plugin "<u>Spring Tools</u>".
 
-Per il corretto funzionamento è necessario istallare l'IDE [Eclipse](https://www.eclipse.org/downloads/) con plugin "<u>Spring Tools</u>".
+Se si utilizzasse il nostro stesso IDE, una volta aperto l'ambiente di sviluppo, bisognerà effettuare i seguenti passaggi:
 
-Successivamente, una volta aperto l'ambiente di sviluppo, bisognerà effetttuare i seguenti passaggi:
+- Tasto destro nel `Package Explorer -> Import -> Project from GIT (with Smart Import)`;
 
-- Tasto destro nel Package Explorer, e cliccare "Import", poi "Project from GIT (with Smart Import)"
+- Copiare nella finestra che si è appena aperta l'[URL del progetto](https://github.com/FedericaRipani/Progetto-Programmazione-ad-Oggetti);
 
-- Copiare nella finestra che si è appena aperta l'[URL del progetto](https://github.com/FedericaRipani/Progetto-Programmazione-ad-Oggetti)
-
-- Una volta importato, basterà selezionare il progetto nel Package Explorer, tasto destro, opzione "Run As" e scegliere "Spring Boot App"
+- Una volta importato, basterà selezionare il progetto nel `Package Explorer`, tasto destro, opzione `Run As -> Spring Boot App`;
 
   Il progetto è dunque pronto, difatti apparirà in console il seguente messaggio di conferma:
 
@@ -103,8 +102,8 @@ Nel momento in cui si clicca su `Run as -> Spring Boot App`, automaticamente ver
 ]
 ```
 
-La collezione di json verrà scaricata, e rappresentata come insieme di `Tweet`, in fase di generazione del server con il nome *database*. 
-Ad operazione conclusa il programma da conferma tramite il server, mostrando in console il particolare messaggio sopracitato.
+La collezione di json verrà scaricata e rappresentata come insieme di `Tweet` in fase di generazione del server, con il nome *database*. 
+Ad operazione conclusa il programma mostra in console il particolare messaggio sopracitato.
 
 Sarà possibile, d'ora in poi, effettuare delle manipolazioni e ottenere informazioni sul *database*.
 
@@ -123,7 +122,9 @@ Il seguente Diagramma dei casi d'uso mostra le richieste che il client può effe
 
 #### Come effettuare le richieste
 
-E' possibile effettuare le seguenti chiamate sia installando un API Testing (ad esempio Postman) che tramite richiesta all' URL http://localhost:8080/.
+E' possibile effettuare le seguenti chiamate sia installando un API Testing (ad esempio Postman) sia tramite richiesta all' URL http://localhost:8080/.
+
+##### ! TUTTI I DATI RESTITUITI SONO IN FORMATO JSON !
 
 
 | DESTINAZIONI                                                 | DESCRIZIONE                                                  |
@@ -142,7 +143,7 @@ I filtri disponibili e alcuni esempi di chiamata sono riportati nella seguente t
 | :------------------: | :----------------------------------------------------------: | :------------------------: | :----------------------------------------------------------: |
 |      UpperBound      | Cerca i valori del campo scelto (**fields**) minori della soglia **upper**. |          Numerici          |     {"type":"UpperBound","fields":"TextPost","upper":200}      |
 | UpperBound and equal | DescrizioneDescrizioneCerca i valori del campo scelto (**fields**) minori o uguali della soglia **upper**. |          Numerici          |     {"type":"UpperBoundE","fields":"TextPost","upper":200}     |
-|      LowerBound      | Cerca i valori del campo scelto maggiori della soglia **lower** nel campo **fields**. |          Numerici          |     {"type":"LowerBound","fields":"TextPost","lower":40}     |
+|      LowerBound      | Cerca i valori del campo scelto (**fields**) maggiori della soglia **lower**. |          Numerici          |     {"type":"LowerBound","fields":"TextPost","lower":40}     |
 | LowerBound and equal | Cerca i valori del campo scelto (**fields**) maggiori o uguali della soglia **lower**. |          Numerici          |    {"type":"LowerBoundE","field":"TextPost","lower":40}     |
 |       Included       | Cerca i valori del campo scelto (**fields**)nei valori compresi tra la soglia **lower** e **upper**. |          Numerici          | {"type":"Included","fields":"TextPost","lower":20,"upper":500} |
 |  Included and equal  | Cerca i valori del campo scelto (**fields**) nei valori compresi o uguali tra la soglia **lower** e **upper**. |          Numerici          | {"type":"IncludedE","fields":"numPost","lower":20,"upper":500} |
@@ -179,7 +180,6 @@ La statistica può riferirsi a tutta la Timeline di Tweet o ad una parte di essa
 > *Esempio di chiamata per le statistiche di tipo stringa: http://localhost:8080/stats?field=nameUser.*
 
 
-##### ! TUTTI I DATI RESTITUITI SONO IN FORMATO JSON !
 
 ##### Esempio di risposta alla chiamata  http://localhost:8080/stats?field=numPost&filter={"type":"UpperBound","fields":"TextPost","lower":100}.
 ```
@@ -269,7 +269,7 @@ Per il Class Diagram completo di metodi e relazioni, e per gli altri diagrammi U
 
 ## Test
 
-Successivamente alla fase di sviluppo del progetto sono stati creati dei test appositi, utilizzando JUnit5, per verificare la corretezza di alcuni metodi, eccezioni e HTTPStatuses.
+Successivamente alla fase di sviluppo del progetto sono stati creati dei test appositi, utilizzando JUnit5, per verificare la correttezza di alcuni metodi, eccezioni e HTTPStatuses.
 
 - `TestException` : Controlla la generazione di un' eccezione causata da un JSONObject errato;
 
@@ -280,14 +280,14 @@ Successivamente alla fase di sviluppo del progetto sono stati creati dei test ap
 
 ---
 
-## **JARS e linguaggio java**
+## **JARs e linguaggio java**
 
-Nel progetto sono stati utilizzati i seguenti JARS:
+Sono stati utilizzati i seguenti JARs, definiti come dipendenze Maven nel [pom.xml](https://github.com/FedericaRipani/Progetto-Programmazione-ad-Oggetti/blob/master/OOP-Poject-TwitterTimeline/pom.xml) del progetto :
 - [Apache common I/O](https://mvnrepository.com/artifact/commons-io/commons-io).
 - [JUnit Jupiter API](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api)
 - [Json](https://mvnrepository.com/artifact/org.json/json).
 
-Nel progetto sono state implementete le seguenti strutture dati:
+Sono state implementate le seguenti strutture dati:
 - `ArrayList<>`
 - `HashMap<,>`
 
