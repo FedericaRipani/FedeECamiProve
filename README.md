@@ -306,5 +306,4 @@ Studentesse del 2° anno di Ing. Informatica e dell'Automazione presso l'UNIVPM.
 Il link rimanda al profilo Twitter creato in occasione dello sviluppo del progetto.
 
 Il progetto è stato svolto in completa collaborazione e, ove possibile, sono state fatte opportune suddivisioni dei compiti.
-Per le suddivisioni specifiche si rimanda alla consultazione degli `@author` nel [JavaDoc](federicaripani.github.io/FedeECamiProve/
-).
+Per le suddivisioni specifiche si rimanda alla consultazione degli `@author` nel [JavaDoc](https://github.com/FedericaRipani/FedeECamiProve/blob/master/docs/index.html).
